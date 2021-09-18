@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Le mariage d'Éléonore et de Florian est prévu pour le 17/09/2022.">
+    <link rel="shortcut icon" href="img/coeurs.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Eléonore & Florian - 17/09/2022</title>
+</head>
+<body>
+    <header class="navigation">
+
+      <nav>
+          <ul>
+              <li><a href="#history">Notre histoire</a></li>
+              <li><a href="#townHall">Date & Heure</a></li>
+              <li><a href="#formTitle">Je réponds à l'invitation</a></li>
+              <li><a href="#">Je poste mes photos</a></li>
+          </ul> 
+      </nav>
+
+      <hgroup>
+        <h1 class="maried"> <span class="h1Group"><span class="h1Ele">Eléonore</span> <span class="h1And">&</span> <span class="h1Florian">Florian</span></span></h1>
+        <h2>Se marient</h2>
+      </hgroup>
+
+    </header>
+    
+    <main>
+
+      <section id="history">
+
+        <div class="historyContainer">
+
+          <h2>Et oui nous allons nous marier !</h2>
+          <p>Nous sommes sur un petit nuage et nous souhaitons partager tout ce bonheur avec vous.<br>
+            En attendant le grand jour, nous avons créé un site où vous aurez toutes les informations du jour J et vous pourrez nous poser des questions si vous en avez.<br>
+            Un détail plus qu'important, <strong> <a class="formTitleLink" href="#formTitle">remplissez le formulaire</a></strong> au bas de la page où vous pouvez confirmer ou non votre venue. (Un moyen supplémentaire de pouvoir nous donner votre réponse)
+          </p>
+
+          <div>
+            <p>Communiquez-le nous au plus vite afin que l’on puisse s’organiser plus facilement ! 🙂</p>
+          </div>
+
+          <div>
+            <p>Bonne lecture à tous et à très bientôt ! ❤️</p>
+          </div>
+
+        </div>
+        
+      </section>
+
+      <section id="carousel"> <!-- Faire le carrousel avec JavaScript - REFAIRE LE CARROUSEL avec le changement des ID et class-->
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="#" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="#" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="#" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+      </section>
+
+      <section id="townHall">
+
+        <div class="townHallContainer">
+          <h3>MAIRIE</h3>
+          <p>Mairie de Valence<br>
+              1 Place de la libérté<br>
+              26000 Valence<br>
+              France
+          </p>
+          <p><strong>14h00</strong></p>
+        </div>
+
+        <div class="img"></div>
+        
+      </section>
+
+      <section id="church">
+
+        <div class="img"></div>
+
+        <div class="churchContainer">
+
+          <div class="churchResponsiveText">
+            <h3>EGLISE</h3>
+            <p>Eglise St-Jean-Baptiste<br>
+                4 Rue du Petit Saint-Jean<br>
+                26000 Valence<br>
+                France
+            </p>
+            <p><strong>15h00</strong></p>
+          </div>
+          
+        </div>
+
+      </section>
+
+      <section id="reception">
+
+        <div class="receptionContainer">
+          <h3>RECEPTION</h3>
+          <p>Château de gourdon<br>
+              1448 Chemin de gourdon<br>
+              07430 Saint-Clair<br>
+              France
+          </p>
+          <p><strong>17h00</strong></p>
+        </div>
+
+        <div class="img"></div>
+
+      </section>
+
+      <section class="form">
+
+        <h2 id="formTitle">Je réponds à l'invitation</h2>
+
+        <form method="POST" action="#"><!--FAIRE FICHIER PHP ou PYTHON ou JS POUR ENREGISTRER LA REPONSE DES INVITES-->
+          
+          <div class="formGrid">
+
+            <div>
+              <label for="name">Nom</label>
+              <input type="text" name="name" id="name">
+            </div>
+
+            <div>
+              <label for="firstName">Prénom</label>
+              <input type="text" name="firstName" id="firstName">
+            </div>
+
+            <div>
+              <label for="tel">Numéro de téléphone</label>
+              <input type="tel" name="tel" id="tel" minlength="10" maxlength="20" required>
+            </div>
+
+            <div>
+              <label for="email">Adresse email</label>
+              <input type="email" name="email" id="email" required>
+            </div>
+
+            <div>
+              <label for="adults">Combien d'adulte êtes-vous ?</label>
+              <input type="number" name="adults" id="adults" minlength="0" maxlength="1">
+            </div>
+
+            <div>
+              <label for="children">Combien d'enfant amenez-vous ?</label>
+              <input type="number" name="children" id="children" minlength="0" maxlength="1">
+            </div>
+
+            <div class="input7">
+              <p class="label7">Serrez-vous présent ?
+                <div class="radioGroup">
+                  <input type="radio" name="answer" class="radio  radioYes" value="yes" id="yes">
+                  <label for="yes">Oui</label>
+                  <input type="radio" name="answer" class="radio  radioNo" value="no" id="no">
+                  <label for="no">Non</label>
+                </div>
+              </p>
+            </div>
+
+            <div>
+              <label for="diet">Avez-vous un régime particulier ? Si oui, lequel ?</label>
+              <input type="text" name="diet" id="diet" placeholder="Ex : Végétarien, Sans gluten, Halal, etc.">
+            </div>
+
+            <div>
+              <label for="allergies">Etes-vous allergique à des aliments ? Si oui, lesquels ?</label>
+              <input type="text" name="allergies" id="allergies" placeholder="Ex : Lait, Fruit à coque, Arachides, etc.">
+            </div>
+
+            <div class="textarea">
+              <label for="message">Vous avez une question à poser aux mariées ?</label>
+              <textarea name="message" id="message" cols="30" rows="10" placeholder="Nous vous répondrons aussi vite que possible"></textarea>
+            </div>
+
+          </div>
+
+          <div>
+            <input type="checkbox" name="check" id="check" required>
+            <label for="check">Je suis sur des informations que j'ai renseignées</label>
+            <button type="submit">Envoyer</button>
+          </div>
+
+        </form>
+
+      </section>
+
+    </main>
+
+     <footer> <!-- FAIRE UN FOOTER CONFORME -->
+
+      <div class="contact">
+
+      </div>
+      <div class="thanks">
+        <p>Ce site à été créer entiérement par Florian Waroquier<br>
+          N'hèsitez pas à lui faire un peu de pub ;)</p> 
+      </div>       
+
+    </footer>
+
+</body>
+
+</html>
