@@ -10,14 +10,14 @@
     <title>Eléonore & Florian - 17/09/2022</title>
 </head>
 <body>
-    <header class="navigation">
+    <header class="navigation"> <!--Header + Navigation bar -> voir pour rendre le nav en hamburger en mode mobile et modifier les liens-->
 
       <nav>
           <ul>
               <li><a href="#history">Notre histoire</a></li>
               <li><a href="#townHall">Date & Heure</a></li>
               <li><a href="#formTitle">Je réponds à l'invitation</a></li>
-              <li><a href="#">Je poste mes photos</a></li>
+              <li><a href="#">Je poste mes photos</a></li> <!--Ajouter la fonctionnalité aux visiteurs d'ajouter et voir les photos du mariage sur une autre page-->
           </ul> 
       </nav>
 
@@ -28,9 +28,9 @@
 
     </header>
     
-    <main>
+    <main> <!--There are six sections on this page : #history ; #carousel ; #townHall ; #church ; #reception ; #form-->
 
-      <section id="history">
+      <section id="history"> <!--SECTION_1 welcome visitors-->
 
         <div class="historyContainer">
 
@@ -52,31 +52,10 @@
         
       </section>
 
-      <section id="carousel"> <!-- Faire le carrousel avec JavaScript - REFAIRE LE CARROUSEL avec le changement des ID et class-->
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="#" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="#" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="#" class="d-block w-100" alt="...">
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
+      <section id="carousel"> <!-- SECTION_2 Carousel -> Faire le carousel en JS avec quelques photos de nous-->
       </section>
 
-      <section id="townHall">
+      <section id="townHall"> <!--SECTION_3 Places and date for the town hall of Valence-->
 
         <div class="townHallContainer">
           <h3>MAIRIE</h3>
@@ -92,7 +71,7 @@
         
       </section>
 
-      <section id="church">
+      <section id="church"> <!--SECTION_4 Places and date for the St Jean church-->
 
         <div class="img"></div>
 
@@ -112,7 +91,7 @@
 
       </section>
 
-      <section id="reception">
+      <section id="reception"> <!--SECTION_5 Places and date for Gourdan castle-->
 
         <div class="receptionContainer">
           <h3>RECEPTION</h3>
@@ -128,11 +107,11 @@
 
       </section>
 
-      <section class="form">
+      <section class="form"> <!--SECTION_6 Invite response form-->
 
         <h2 id="formTitle">Je réponds à l'invitation</h2>
 
-        <form method="POST" action="#"><!--FAIRE FICHIER PHP ou PYTHON ou JS POUR ENREGISTRER LA REPONSE DES INVITES-->
+        <form method="POST" action="#"><!--Faire fichier PHP, PYTHON ou Node.js pour enregistrer les réponses des invités-->
           
           <div class="formGrid">
 
@@ -206,8 +185,7 @@
 
     </main>
 
-     <footer> <!-- FAIRE UN FOOTER CONFORME -->   
-
+     <footer> <!--Faire un footer conforme-->   
     </footer>
 
 </body>
