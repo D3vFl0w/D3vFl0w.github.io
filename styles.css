@@ -2,6 +2,8 @@
 faire la partie responsive
 Charger des images plus petites en format image car les photos de base en JPG sont trop lourdes à charger et ralenti la page
 mettre un carrousel en javascript
+empêcher les gens de pouvoir mettre du code dans le formulaire
+Empêcher les gens 
 Faire en sorte que les gens puissent ajouter leur photos et voir toutes les photos, tout ça sur une autre page.
 Faire un footer conforme
 Demander à élé qu'elle choissise les polices.
@@ -69,7 +71,7 @@ button {
 \*----------------*/
 
 header {
-  background: url('img/ring-rose.jpg') 50% 0 / cover fixed;
+  background: url('img/ring-rose.jpg') fixed center/cover;
   height: 100vh;
 } 
 
