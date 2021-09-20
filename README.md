@@ -2,9 +2,6 @@
 
 - Mettre le logo en haut au centre au dessus de la barre de navigation.
 
-Changer le titre, écrire seuleulent en majuscule ELEONORE ET FLORIAN avec cette police :
-https://www.dafont.com/fr/search.php?q=chapaza&text=ELEONORE+%26+FLORIAN
-
 - Mettre nouveau bloc sous notre photo avec ce texte : 
 
 Nous nous marions !
