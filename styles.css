@@ -2,18 +2,18 @@
 faire la partie responsive
 Charger des images plus petites en format image car les photos de base en JPG sont trop lourdes à charger et ralenti la page
 mettre un carrousel en javascript
-Faire en sorte que les gens puissent ajouter leur photos et voir toutes les photos.
-Voir s'il faut faire le formulaire sur une autre page dédiée.
+Faire en sorte que les gens puissent ajouter leur photos et voir toutes les photos, tout ça sur une autre page.
 Faire un footer conforme
 Demander à élé qu'elle choissise les polices.
+Faire le refactoring du CSS
+Utiliser SASS
  */
 
 /************
 PETITS ECRANS
 *************
 
-
-2.Mettre le Nav hamburger en haut de l'écrans;
+Mettre le Nav hamburger en haut de l'écrans;
 
 *************/
 
@@ -65,7 +65,7 @@ button {
 }
 
 /*----------------*\
-  #SECTION-HEADER
+  #HEADER
 \*----------------*/
 
 header {
@@ -104,9 +104,9 @@ hgroup h1 {
   margin-top: 30vh;
 }
 
-/*----------------*\
-  #SECTION-HISTORY
-\*----------------*/
+/*------------------*\
+  #SECTION_1 HISTORY
+\*------------------*/
 
 #history {
   min-height: 700px;
@@ -140,16 +140,16 @@ hgroup h1 {
   color: #eb9743;
 }
 
-/*-------------------*\
-  #SECTION-TOWN HALL
-\*-------------------*/
+/*---------------------*\
+  #SECTION_3 TOWN HALL
+\*---------------------*/
 
 #townHall .img {
   background: url('/img/mairie2.png') center/cover ;
 }
 
 /*------------------*\
-  #SECTION-CHURCH
+  #SECTION_4 CHURCH
 \*------------------*/
 
 #church {
@@ -162,9 +162,9 @@ hgroup h1 {
   background: url('/img/eglise.jpg') center/cover;
 }
 
-/*--------------------*\
-  #SECTION-RECEPTION
-\*--------------------*/
+/*---------------------*\
+  #SECTION_5 RECEPTION
+\*---------------------*/
 
 #reception .img {
   background: url('/img/reception.jpg') center/cover;
@@ -172,7 +172,7 @@ hgroup h1 {
 
 
 /*------------------*\
-  #SECTION-FORM
+  #SECTION_6 FORM
 \*------------------*/
 
 .form {
@@ -294,13 +294,13 @@ button:hover {
 }
 
 /*------------------*\
-  #SECTION-FOOTER
+  #FOOTER
 \*------------------*/
 
 
 
 /*------------------------*\
-  #SECTION-MEDIAS_QUERIES
+  #MEDIAS_QUERIES
 \*------------------------*/
 
 @media screen and (max-width:650px){
@@ -353,8 +353,4 @@ button:hover {
   .form {
     padding: 0;
   }
-}
-
-@media screen and (max-width:550px){
-
 }
