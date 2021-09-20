@@ -24,6 +24,11 @@ Mettre le Nav hamburger en haut de l'écrans;
   #GENERALS-SETTINGS
 \*-------------------*/
 
+@font-face {
+  font-family: chapaza;
+  src: url('/fonts/Chapaza.ttf');
+}
+
 html {
   scroll-behavior: smooth;
 }
