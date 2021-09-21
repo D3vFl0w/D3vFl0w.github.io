@@ -83,7 +83,6 @@ header {
 
 nav {
   display: flex;
-  justify-content: center;
 }
 
 ul {
@@ -357,9 +356,18 @@ button:hover {
 \*------------------------*/
 
 @media screen and (max-width:650px){
+  nav {
+    flex-direction: column;
+  }
+
   ul {
     flex-direction: column;
     height: auto;
+  }
+
+  .navImgContainer {
+    text-align: center;
+    order: -1;
   }
 
   .logo{
