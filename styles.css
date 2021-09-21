@@ -1,13 +1,15 @@
 /*;
-faire la partie responsive
-Charger des images plus petites en format image car les photos de base en JPG sont trop lourdes à charger et ralenti la page + FAIRE DES IMAGES RESPONSIVES
-mettre un carrousel en javascript
-empêcher les gens de pouvoir mettre du code dans le formulaire
-Faire en sorte que les gens puissent ajouter leur photos et voir toutes les photos, tout ça sur une autre page.
-Faire un footer conforme
-Demander à élé qu'elle choissise les polices.
-Faire le refactoring du CSS
-Utiliser SASSgit
+faire la partie responsive;
+Charger des images plus petites en format image car les photos de base en JPG sont trop lourdes à charger et ralenti la page + FAIRE DES IMAGES RESPONSIVES;
+L'image backgroundDate ne se retrecite pas;
+mettre un carrousel en javascript;
+empêcher les gens de pouvoir mettre du code dans le formulaire;
+Faire en sorte que les gens puissent ajouter leur photos et voir toutes les photos, tout ça sur une autre page;
+Faire un footer conforme;
+Demander à élé qu'elle choissise les polices;
+Faire le refactoring du CSS;
+Utiliser SASSgit;
+
  */
 
 /************
@@ -79,6 +81,11 @@ header {
   height: 100vh;
 } 
 
+nav {
+  display: flex;
+  justify-content: center;
+}
+
 ul {
   background-color: rgba(187 135 77 / 53%);
   display: flex;
@@ -88,13 +95,26 @@ ul {
   margin: 0;
   padding: 0;
   height: 100px;
+  width: 100vw;
   font-size: 1.1em;
   font-weight: 600;
+}
+
+li {
+  margin: 0 20px;
 }
 
 li a {
   text-decoration: none;
   color: black;
+}
+
+.navImgContainer {
+  background-color: rgba(187 135 77 / 53%);
+}
+
+nav img {
+
 }
 
 hgroup {
@@ -116,7 +136,7 @@ hgroup h1 {
 \*------------------*/
 
 .backgroundDate{
-  background: url(./img/fond_date.png) center/ 1000px no-repeat;
+  background: url('./img/fond_date.png') center/ 1000px no-repeat;
   height: 750px;
   display: flex;
   justify-content: center;
@@ -339,6 +359,11 @@ button:hover {
 @media screen and (max-width:650px){
   ul {
     flex-direction: column;
+    height: auto;
+  }
+
+  .logo{
+    order: -1;
   }
 
   .h1Group {
