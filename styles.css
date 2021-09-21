@@ -30,6 +30,10 @@ Mettre le Nav hamburger en haut de l'écrans;
   src: url("/fonts/Chapaza.ttf");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -355,7 +359,7 @@ button:hover {
   #MEDIAS_QUERIES
 \*------------------------*/
 
-@media screen and (max-width:650px){
+@media only screen and (max-width:650px){
   nav {
     flex-direction: column;
   }
@@ -371,7 +375,7 @@ button:hover {
   }
 
   .logo{
-    order: -1;
+    /* order: -1; */
   }
 
   .h1Group {
@@ -380,7 +384,7 @@ button:hover {
   }
 }
 
-@media screen and (max-width:550px){
+@media only screen and (max-width:550px){
   #history {
     font-size: small;
   }
