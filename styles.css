@@ -1,14 +1,17 @@
 /*;
-faire la partie responsive;
-Charger des images plus petites en format image car les photos de base en JPG sont trop lourdes à charger et ralenti la page + FAIRE DES IMAGES RESPONSIVES;
-L'image backgroundDate ne se retrecite pas;
-mettre un carrousel en javascript;
-empêcher les gens de pouvoir mettre du code dans le formulaire;
-Faire en sorte que les gens puissent ajouter leur photos et voir toutes les photos, tout ça sur une autre page;
-Faire un footer conforme;
-Demander à élé qu'elle choissise les polices;
-Faire le refactoring du CSS;
-Utiliser SASSgit;
+1. Faire la partie responsive : Refaire les images + logo à la bonne taille;
+
+2. Mettre un carrousel en javascript + Refaire le nav hamburger;
+
+3. Empêcher les gens de pouvoir mettre du code dans le formulaire;
+
+4. Faire en sorte que les gens puissent ajouter leur photos et voir toutes les photos, tout ça sur une autre page;
+
+5. Faire un footer conforme;
+
+6. Faire le refactoring du CSS;
+
+7. Utiliser SASS;
 
  */
 
@@ -116,10 +119,6 @@ li a {
   background-color: rgba(187 135 77 / 53%);
 }
 
-nav img {
-
-}
-
 hgroup {
   text-align: center;
   /* padding-top: 300px; */
@@ -139,7 +138,7 @@ hgroup h1 {
 \*------------------*/
 
 .backgroundDate{
-  background: url('./img/fond_date.png') center/ 1000px no-repeat;
+  background: url('./img/fond_date_r.png') center/ 1000px no-repeat;
   height: 750px;
   display: flex;
   justify-content: center;
@@ -305,6 +304,7 @@ input[type="radio"].radio {
 
 input[type="radio"].radio + label {
   padding: 0.5rem 1rem;
+  margin: 10px 45px;
   line-height: 1.5;
   border-radius: 0.3rem;
   color: #fff;
@@ -340,7 +340,7 @@ textarea {
 }
 
 .radioGroup {
-  margin: 15px 0 40px;
+  margin: 30px 0 40px;
 }
 
 button:hover {
@@ -359,6 +359,12 @@ button:hover {
   #MEDIAS_QUERIES
 \*------------------------*/
 
+@media only screen and (max-width:850px){
+  .backgroundDate {
+    background-size: 90%;
+  }
+}
+
 @media only screen and (max-width:650px){
   nav {
     flex-direction: column;
@@ -374,10 +380,6 @@ button:hover {
     order: -1;
   }
 
-  .logo{
-    /* order: -1; */
-  }
-
   .h1Group {
     display: flex;
     flex-direction: column;
@@ -387,6 +389,7 @@ button:hover {
 @media only screen and (max-width:550px){
   #history {
     font-size: small;
+    margin-bottom: 40px;
   }
 
   #townHall,
@@ -395,6 +398,12 @@ button:hover {
     display: flex;
     flex-direction: column;
     height: 100vh;
+  }
+
+  .townHallContainer,
+  .churchContainer,
+  .receptionContainer {
+    margin: 20px 0;
   }
 
   #church {
