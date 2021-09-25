@@ -114,3 +114,8 @@ On demande à l'utilisateur de rentrer une heure et on lui dira si le magasin es
 //         }
 //     }
 // }
+
+
+for ($x=0; $x <=5 ; $x++) { 
+    echo 'La variable \'x\' contient la valeur : ' .$x. "\n";
+}
