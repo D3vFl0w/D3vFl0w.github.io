@@ -116,6 +116,58 @@ On demande à l'utilisateur de rentrer une heure et on lui dira si le magasin es
 // }
 
 
-for ($x=0; $x <=5 ; $x++) { 
-    echo 'La variable \'x\' contient la valeur : ' .$x. "\n";
-}
+// for ($x=0; $x <=5 ; $x++) { 
+//     echo 'La variable \'x\' contient la valeur : ' .$x. "\n";
+// }
+
+// $prenom =  array('Pierre, Paul, Jacques');
+
+// $prenoms[0] = 'Pierre';
+// $prenoms[1] = 'Paul';
+// $prenoms[2] = 'Jacques';
+
+// $age = array(
+//     'Pierre' => 24,
+//     'Paul' => 30,
+//     'Jacques' => 'Non renseigné'
+// );
+
+// $ages['Pierre'] = 24;
+// $ages['Paul'] = 30;
+// $ages['Jacques'] = 'Non renseigné';
+
+
+
+// $prenom = array('Pierre', 'Paul', 'Jacques');
+
+// for ($p = 0; $p <= 2; $p++) {
+//     echo $prenom[$p];
+// }
+
+// foreach ($prenom as $firstname) {
+//     echo $firstname;
+// }
+
+// $membres = array(
+//     array('Pierre', 24, 'pierre.giraud@edhec.com'),
+//     array('Paul', 22, 'paul.grec@live.com'),
+//     array('Jacques', 36, 'Jacuqot@gmail.com')
+// );
+
+// echo $membres[0][0]. ' a ' .$membres[0][1]. ' ans. Son mail est : ' .$membres[0][2]. "\n";
+// echo $membres[2][0]. ' a ' .$membres[2][1]. ' ans. Son mail est : ' .$membres[2][2];
+
+// for ($ligne = 0; $ligne < 3; $ligne++) {
+//     $membres_no = $ligne + 1;
+//     echo 'Membre numéro' . $membres_no . "\n";
+//     echo '<ul>';
+//     for ($col = 0; $col < 3; $col++) {
+//         echo '<li>' . $membres[$ligne][$col] . '</li>';
+//     }
+//     echo '</ul>';
+// }
+
+
+
+
+
