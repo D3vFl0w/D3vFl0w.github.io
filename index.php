@@ -12,216 +12,231 @@
 </head>
 
 <body>
-    <header class="navigation">
-        <!--Header + Navigation bar -> voir pour rendre le nav en hamburger en mode mobile et modifier les liens + Mettre un logo-->
 
-        <nav>
+    <?
+        if (!isset($_POST['password']) || $_POST['password'] != 25012014) {
+    ?> 
+        <form action="index.php" method="post">
+            <label for="password">Entrez le mot de passe</label>
+            <input type="password" name="password" id="password">
+            <input type="submit" value="Valider">
+        </form>
+    <?
+    } else {
+    ?>
+        <header class="navigation">
+            <!--Header + Navigation bar -> voir pour rendre le nav en hamburger en mode mobile et modifier les liens + Mettre un logo-->
 
-            <ul class="navLeft">
-                <li><a href="#history">Notre histoire</a></li>
-                <li><a href="#townHall">Lieux</a></li>
-            </ul>
+            <nav>
 
-            <div class="navImgContainer">
-                <a class="navImg" href="#"><img src="/img/logo.png" alt="logo du site" height="90px"></a>
-            </div>
+                <ul class="navLeft">
+                    <li><a href="#history">Notre histoire</a></li>
+                    <li><a href="#townHall">Lieux</a></li>
+                </ul>
 
-            <ul class="navRight">
-                <li><a href="#formTitle">Je réponds à l'invitation</a></li>
-                <li><a href="#">Je poste mes photos</a></li>
-                <!--Ajouter la fonctionnalité aux visiteurs d'ajouter et voir les photos du mariage sur une autre page-->
-            </ul>
-
-        </nav>
-
-        <hgroup>
-            <h1 class="maried"> <span class="h1Group"><span class="h1Ele">ELEONORE</span> <span class="h1And">&</span> <span class="h1Florian">FLORIAN</span></span></h1>
-        </hgroup>
-
-    </header>
-
-    <main>
-        <!--There are seven sections on this page : #dateIMG ; #history ; #carousel ; #townHall ; #church ; #reception ; #form-->
-
-        <section id="dateImg">
-            <!--SECTION_1 Date-->
-
-            <div class="backgroundDate">
-                <h2> <span class="spanTitle">Nous nous marions !</span><br>
-                    <span class="spanDate">
-                        <!--17/09/2022-->
-                    </span>
-                </h2>
-            </div>
-
-        </section>
-
-        <section id="history">
-            <!--SECTION_2 welcome visitors-->
-
-            <div class="historyContainer">
-
-                <h2>Bienvenue à notre mariage ! ❤️</h2>
-                <p>Et oui nous allons nous marier !<br>
-                    Nous sommes sur un petit nuage et nous souhaitons partager tout ce bonheur avec vous.<br>
-                    En attendant le grand jour, nous avons créé un site où vous aurez toutes les informations du jour J et vous pourrez nous poser des questions si vous en avez.<br>
-                    Un détail plus qu'important, <strong> <a class="formTitleLink" href="#formTitle">remplissez le formulaire</a></strong> au bas de la page où vous pouvez confirmer ou non votre venue. (Un moyen supplémentaire de pouvoir nous donner votre réponse)
-                </p>
-
-                <div>
-                    <p>Communiquez-le nous au plus vite afin que l’on puisse s’organiser plus facilement ! 🙂</p>
+                <div class="navImgContainer">
+                    <a class="navImg" href="#"><img src="/img/logo.png" alt="logo du site" height="90px"></a>
                 </div>
 
-                <div>
-                    <p>Bonne lecture à tous et à très bientôt ! ❤️</p>
+                <ul class="navRight">
+                    <li><a href="#formTitle">Je réponds à l'invitation</a></li>
+                    <li><a href="#">Je poste mes photos</a></li>
+                    <!--Ajouter la fonctionnalité aux visiteurs d'ajouter et voir les photos du mariage sur une autre page-->
+                </ul>
+
+            </nav>
+
+            <hgroup>
+                <h1 class="maried"> <span class="h1Group"><span class="h1Ele">ELEONORE</span> <span class="h1And">&</span> <span class="h1Florian">FLORIAN</span></span></h1>
+            </hgroup>
+
+        </header>
+
+        <main>
+            <!--There are seven sections on this page : #dateIMG ; #history ; #carousel ; #townHall ; #church ; #reception ; #form-->
+
+            <section id="dateImg">
+                <!--SECTION_1 Date-->
+
+                <div class="backgroundDate">
+                    <h2> <span class="spanTitle">Nous nous marions !</span><br>
+                        <span class="spanDate">
+                            <!--17/09/2022-->
+                        </span>
+                    </h2>
                 </div>
 
-            </div>
+            </section>
 
-        </section>
+            <section id="history">
+                <!--SECTION_2 welcome visitors-->
 
-        <section id="carousel">
-            <!--SECTION_3 Carousel -> Faire le carousel en JS avec quelques photos de nous-->
-        </section>
+                <div class="historyContainer">
 
-        <section id="townHall">
-            <!--SECTION_4 Places and date for the town hall of Valence-->
+                    <h2>Bienvenue à notre mariage ! ❤️</h2>
+                    <p>Et oui nous allons nous marier !<br>
+                        Nous sommes sur un petit nuage et nous souhaitons partager tout ce bonheur avec vous.<br>
+                        En attendant le grand jour, nous avons créé un site où vous aurez toutes les informations du jour J et vous pourrez nous poser des questions si vous en avez.<br>
+                        Un détail plus qu'important, <strong> <a class="formTitleLink" href="#formTitle">remplissez le formulaire</a></strong> au bas de la page où vous pouvez confirmer ou non votre venue. (Un moyen supplémentaire de pouvoir nous donner votre réponse)
+                    </p>
 
-            <div class="townHallContainer">
-                <h3>MAIRIE</h3>
-                <p>Mairie de Valence<br>
-                    1 Place de la libérté<br>
-                    26000 Valence<br>
-                    France
-                </p>
-                <p><strong>14h00</strong></p>
-            </div>
+                    <div>
+                        <p>Communiquez-le nous au plus vite afin que l’on puisse s’organiser plus facilement ! 🙂</p>
+                    </div>
 
-            <div class="img"></div>
+                    <div>
+                        <p>Bonne lecture à tous et à très bientôt ! ❤️</p>
+                    </div>
 
-        </section>
+                </div>
 
-        <section id="church">
-            <!--SECTION_5 Places and date for the St Jean church-->
+            </section>
 
-            <div class="img"></div>
+            <section id="carousel">
+                <!--SECTION_3 Carousel -> Faire le carousel en JS avec quelques photos de nous-->
+            </section>
 
-            <div class="churchContainer">
+            <section id="townHall">
+                <!--SECTION_4 Places and date for the town hall of Valence-->
 
-                <div class="churchResponsiveText">
-                    <h3>EGLISE</h3>
-                    <p>Eglise St-Jean-Baptiste<br>
-                        4 Rue du Petit Saint-Jean<br>
+                <div class="townHallContainer">
+                    <h3>MAIRIE</h3>
+                    <p>Mairie de Valence<br>
+                        1 Place de la libérté<br>
                         26000 Valence<br>
                         France
                     </p>
-                    <p><strong>15h00</strong></p>
+                    <p><strong>14h00</strong></p>
                 </div>
 
-            </div>
+                <div class="img"></div>
 
-        </section>
+            </section>
 
-        <section id="reception">
-            <!--SECTION_6 Places and date for Gourdan castle-->
+            <section id="church">
+                <!--SECTION_5 Places and date for the St Jean church-->
 
-            <div class="receptionContainer">
-                <h3>RECEPTION</h3>
-                <p>Château de gourdan<br>
-                    1448 Chemin de gourdan<br>
-                    07430 Saint-Clair<br>
-                    France
-                </p>
-                <p><strong>17h00</strong></p>
-            </div>
+                <div class="img"></div>
 
-            <div class="img"></div>
+                <div class="churchContainer">
 
-        </section>
-
-        <section class="form">
-            <!--SECTION_7 Invite response form-->
-
-            <h2 id="formTitle">Je réponds à l'invitation</h2>
-
-            <form method="POST" action="/php/form.php">
-                <!--Faire fichier PHP, PYTHON ou Node.js pour enregistrer les réponses des invités-->
-
-                <div class="formGrid">
-
-                    <div>
-                        <label for="name">Nom</label>
-                        <input type="text" name="name" id="name">
-                    </div>
-
-                    <div>
-                        <label for="firstName">Prénom</label>
-                        <input type="text" name="firstName" id="firstName">
-                    </div>
-
-                    <div>
-                        <label for="tel">Numéro de téléphone</label>
-                        <input type="tel" name="tel" id="tel" minlength="10" maxlength="20" required>
-                    </div>
-
-                    <div>
-                        <label for="email">Adresse email</label>
-                        <input type="email" name="email" id="email" required>
-                    </div>
-
-                    <div>
-                        <label for="adults">Nombre d'adulte :</label>
-                        <input type="number" name="adults" id="adults" minlength="0" maxlength="1">
-                    </div>
-
-                    <div>
-                        <label for="children">Nombre d'enfant :</label>
-                        <input type="number" name="children" id="children" minlength="0" maxlength="1">
-                    </div>
-
-                    <div class="input7">
-                        <p class="label7">Serrez-vous présent ?
-                        <div class="radioGroup">
-                            <input type="radio" name="answer" class="radio  radioYes" value="yes" id="yes">
-                            <label for="yes">Oui</label>
-                            <input type="radio" name="answer" class="radio  radioNo" value="no" id="no">
-                            <label for="no">Non</label>
-                        </div>
+                    <div class="churchResponsiveText">
+                        <h3>EGLISE</h3>
+                        <p>Eglise St-Jean-Baptiste<br>
+                            4 Rue du Petit Saint-Jean<br>
+                            26000 Valence<br>
+                            France
                         </p>
-                    </div>
-
-                    <div>
-                        <label for="diet">Régime particulier :</label>
-                        <input type="text" name="diet" id="diet" placeholder="Ex : Végétarien, Sans gluten, Halal, etc.">
-                    </div>
-
-                    <div>
-                        <label for="allergies">Allérgies :</label>
-                        <input type="text" name="allergies" id="allergies" placeholder="Ex : Lait, Fruit à coque, Arachides, etc.">
-                    </div>
-
-                    <div class="textarea">
-                        <label for="message">Vous avez une question à poser aux mariées ?</label>
-                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Nous vous répondrons aussi vite que possible"></textarea>
+                        <p><strong>15h00</strong></p>
                     </div>
 
                 </div>
 
-                <div>
-                    <input type="checkbox" name="check" id="check" required>
-                    <label for="check">Je suis sur des informations que j'ai renseignées</label>
-                    <button type="submit">Envoyer</button>
+            </section>
+
+            <section id="reception">
+                <!--SECTION_6 Places and date for Gourdan castle-->
+
+                <div class="receptionContainer">
+                    <h3>RECEPTION</h3>
+                    <p>Château de gourdan<br>
+                        1448 Chemin de gourdan<br>
+                        07430 Saint-Clair<br>
+                        France
+                    </p>
+                    <p><strong>17h00</strong></p>
                 </div>
 
-            </form>
+                <div class="img"></div>
 
-        </section>
+            </section>
 
-    </main>
+            <section class="form">
+                <!--SECTION_7 Invite response form-->
 
-    <footer>
-        <!--Faire un footer conforme-->
-    </footer>
+                <h2 id="formTitle">Je réponds à l'invitation</h2>
+
+                <form method="POST" action="/php/form.php">
+                    <!--Faire fichier PHP, PYTHON ou Node.js pour enregistrer les réponses des invités-->
+
+                    <div class="formGrid">
+
+                        <div>
+                            <label for="name">Nom</label>
+                            <input type="text" name="name" id="name">
+                        </div>
+
+                        <div>
+                            <label for="firstName">Prénom</label>
+                            <input type="text" name="firstName" id="firstName">
+                        </div>
+
+                        <div>
+                            <label for="tel">Numéro de téléphone</label>
+                            <input type="tel" name="tel" id="tel" minlength="10" maxlength="20" required>
+                        </div>
+
+                        <div>
+                            <label for="email">Adresse email</label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
+
+                        <div>
+                            <label for="adults">Nombre d'adulte :</label>
+                            <input type="number" name="adults" id="adults" minlength="0" maxlength="1">
+                        </div>
+
+                        <div>
+                            <label for="children">Nombre d'enfant :</label>
+                            <input type="number" name="children" id="children" minlength="0" maxlength="1">
+                        </div>
+
+                        <div class="input7">
+                            <p class="label7">Serrez-vous présent ?
+                            <div class="radioGroup">
+                                <input type="radio" name="answer" class="radio  radioYes" value="yes" id="yes">
+                                <label for="yes">Oui</label>
+                                <input type="radio" name="answer" class="radio  radioNo" value="no" id="no">
+                                <label for="no">Non</label>
+                            </div>
+                            </p>
+                        </div>
+
+                        <div>
+                            <label for="diet">Régime particulier :</label>
+                            <input type="text" name="diet" id="diet" placeholder="Ex : Végétarien, Sans gluten, Halal, etc.">
+                        </div>
+
+                        <div>
+                            <label for="allergies">Allérgies :</label>
+                            <input type="text" name="allergies" id="allergies" placeholder="Ex : Lait, Fruit à coque, Arachides, etc.">
+                        </div>
+
+                        <div class="textarea">
+                            <label for="message">Vous avez une question à poser aux mariées ?</label>
+                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Nous vous répondrons aussi vite que possible"></textarea>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="check" id="check" required>
+                        <label for="check">Je suis sur des informations que j'ai renseignées</label>
+                        <button type="submit">Envoyer</button>
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+        <footer>
+            <!--Faire un footer conforme-->
+        </footer>
+    <?
+    }
+    ?>
 
 </body>
 
