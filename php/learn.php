@@ -138,36 +138,61 @@ On demande à l'utilisateur de rentrer une heure et on lui dira si le magasin es
 
 
 
-// $prenom = array('Pierre', 'Paul', 'Jacques');
+// // // // $prenom = array('Pierre', 'Paul', 'Jacques');
 
-// for ($p = 0; $p <= 2; $p++) {
-//     echo $prenom[$p];
-// }
+// // // // for ($p = 0; $p <= 2; $p++) {
+// // // //     echo $prenom[$p];
+// // // // }
 
-// foreach ($prenom as $firstname) {
-//     echo $firstname;
-// }
+// // // // foreach ($prenom as $firstname) {
+// // // //     echo $firstname;
+// // // // }
 
-// $membres = array(
-//     array('Pierre', 24, 'pierre.giraud@edhec.com'),
-//     array('Paul', 22, 'paul.grec@live.com'),
-//     array('Jacques', 36, 'Jacuqot@gmail.com')
-// );
+// // // // $membres = array(
+// // // //     array('Pierre', 24, 'pierre.giraud@edhec.com'),
+// // // //     array('Paul', 22, 'paul.grec@live.com'),
+// // // //     array('Jacques', 36, 'Jacuqot@gmail.com')
+// // // // );
 
-// echo $membres[0][0]. ' a ' .$membres[0][1]. ' ans. Son mail est : ' .$membres[0][2]. "\n";
-// echo $membres[2][0]. ' a ' .$membres[2][1]. ' ans. Son mail est : ' .$membres[2][2];
-
-// for ($ligne = 0; $ligne < 3; $ligne++) {
-//     $membres_no = $ligne + 1;
-//     echo 'Membre numéro' . $membres_no . "\n";
-//     echo '<ul>';
-//     for ($col = 0; $col < 3; $col++) {
-//         echo '<li>' . $membres[$ligne][$col] . '</li>';
-//     }
-//     echo '</ul>';
-// }
+// // // // echo $membres[0][0]. ' a ' .$membres[0][1]. ' ans. Son mail est : ' .$membres[0][2]. "\n";
+// // // // echo $membres[2][0]. ' a ' .$membres[2][1]. ' ans. Son mail est : ' .$membres[2][2];
 
 
 
+for ($ligne = 0; $ligne < 3; $ligne++) {
+    $membres_no = $ligne + 1;
+    echo 'Membre numéro' . $membres_no . "\n";
+    echo '<ul>';
+    for ($col = 0; $col < 3; $col++) {
+        echo '<li>' . $membres[$ligne][$col] . '</li>';
+    }
+    echo '</ul>';
+}
 
+const _UNECONSTANTE = 'Une chaîne de caractèr';
 
+define("_UNECONSTANTE2", "Bienvenue sur mon site !");
+
+$loisir = array(
+    'sport' => 'Trail',
+    'voyage' => 'Ecosse',
+    'musique' => 'Guitare'
+);
+
+print_r(array_values($loisirs));
+
+echo htmlspecialchars($_POST['prenom']);
+
+$voitures = array(
+	'Citroen' => 'DS3',
+	'Renault' => 'Clio',
+	'Peugeot' => '306',
+	'Peugeot2' => 306
+);
+
+if (array_key_exists('Citroen',$voitures)){ // Affiche True s'il trouve la clé Citroen dans le tableau voitures
+	echo "la clé existe"; // Affiche le texte si True
+}
+else {
+	echo "la clé n'existe pas"; // Affiche ce texte si false
+} 
