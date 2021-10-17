@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once('connect.php');
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+$query = $db->prepare("INSERT INTO invites(Nom,Prenom,Telephone,Mail) VALUES(:nom,:prenom,:tel,:email)");
 
-<body>
-    <?php
-    echo "Bonjour Florian";
-    ?>
-</body>
+$query->bindParam(':nom', $name);
+$query->bindParam(':prenom', $firstname);
+$query->bindParam(':tel', $tel);
+$query->bindParam(':email', $email);
 
-</html>
+$name = 'Waro';
+$firstname = 'Flo';
+$tel = 0102030405;
+$email = "Flo.war@flo.fr";
+
+$query->execute();
+?>
+
+<p><a href="/index.html">Retour à l'acceuil</a></p>
