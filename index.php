@@ -1,8 +1,3 @@
-<?php
-// Connexion à la base de donnée 
-require_once('php/connect.php');
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -126,7 +121,7 @@ require_once('php/connect.php');
 
             <h2 id="formTitle">Je réponds à l'invitation</h2>
 
-            <form method="POST" action="/php/form_traitement.php">
+            <form method="POST" action="php/form_traitement.php">
 
                 <div class="formGrid">
 
