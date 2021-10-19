@@ -1,3 +1,8 @@
+<?php
+// Connexion à la base de donnée 
+require_once('connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -117,6 +122,7 @@
         </section>
 
         <?php
+        require_once('php/form_traitement.php');
         include('form.php');
         ?>
 

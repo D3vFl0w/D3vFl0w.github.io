@@ -54,7 +54,7 @@
 
     <div>
       <label for="allergies">Allérgies :</label>
-      <input type="text" name="allergies" id="allergies" placeholder="Ex : Lait, Fruit à coque, Arachides, etc.">
+      <input type="text" name="allergy" id="allergies" placeholder="Ex : Lait, Fruit à coque, Arachides, etc.">
     </div>
 
     <div class="textarea">

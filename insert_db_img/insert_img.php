@@ -10,31 +10,57 @@
 
 <?php
 
-include("../php/functions/security.php");
+$name = $firstName = "";
+
+function securing($formData)
+{
+    $formData = trim($formData);
+    $formData = stripslashes($formData);
+    $formData = strip_tags($formData);
+    return $formData;
+}
 
 if (!empty($_POST)) { // Vérification de $_POST n'est pas vide, le formulaire est rempli
-    if(
-        isset($_POST["name"], $_POST["firsName"])
+    if (
+        isset($_POST["name"], $_POST["firstName"])
         && !empty($_POST["name"]) && !empty($_POST["firstName"])
-    ){
+    ) {
         $name = securing($_POST["name"]);
         $firstName = securing($_POST['firstName']);
 
         require_once("../php/connect.php");
 
-        $sql = "INSERT INTO 'invites' ('Nom', 'Prenom') VALUES (:name, :firstName)";
+        $sql = "INSERT INTO invites(Nom, Prenom) VALUES (:name, :firstName)";
         $query = $db->prepare($sql);
 
         $query->bindValue(":name", $name, PDO::PARAM_STR);
         $query->bindValue(":firstName", $firstName, PDO::PARAM_STR);
 
-        if(!$query->execute()){
+        if (!$query->execute()) {
             die("Une erreur est survneie");
         }
-
     } else {
         die("Le formulaire est incomplet");
     }
 }
 
-include("../insert_db_img/form_img.php");
+?>
+<form method="POST">
+
+    <div class="formGrid">
+
+        <div>
+            <label for="name">Nom</label>
+            <input type="text" name="name" id="name">
+        </div>
+
+        <div>
+            <label for="firstName">Prénom</label>
+            <input type="text" name="firstName" id="firstName">
+        </div>
+
+        <div>
+            <button type="submit">Envoyer</button>
+        </div>
+
+</form>
