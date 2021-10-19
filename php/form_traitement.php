@@ -15,6 +15,8 @@ $diet = securing($_POST['diet']);
 $allergy = securing($_POST['allergy']);
 $message = securing($_POST['message']);
 
+require_once('connect.php');
+
 // Stockage de la requête SQL dans une variable
 $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Questions) VALUES(:nom,:prenom,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
 

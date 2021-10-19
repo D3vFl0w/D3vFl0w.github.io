@@ -208,7 +208,7 @@ hgroup h1 {
 \*---------------------*/
 
 #townHall .img {
-  background: url('/img/mairie2.png') center/cover ;
+  background: url('img/mairie2.png') center/cover ;
 }
 
 /*------------------*\
@@ -222,7 +222,7 @@ hgroup h1 {
 }
 
 #church .img {
-  background: url('/img/eglise.jpg') center/cover;
+  background: url('/img/mairie2.png') center/cover;
 }
 
 /*---------------------*\

@@ -1,4 +1,4 @@
-<header class="navigation">
+    <header class="navigation">
         <!--Header + Navigation bar -> voir pour rendre le nav en hamburger en mode mobile et modifier les liens + Mettre un logo-->
 
         <nav>
