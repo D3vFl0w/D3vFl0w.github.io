@@ -46,14 +46,14 @@ if (!empty($_POST)) {
         require_once('connect.php');
 
         // Stockage de la requête SQL dans une variable
-        $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Questions) VALUES(:nom,:prenom,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
+        $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Question) VALUES(:nom,:prenom,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
 
         // Requête préparé 
         $query = $db->prepare($sql);
 
         // Lier les marqueurs de la requête SQL à des variables
         $query->bindParam(':nom', $name, PDO::PARAM_STR);
-        $query->bindParam(':prenom', $firstname, PDO::PARAM_STR);
+        $query->bindParam(':prenom', $firstName, PDO::PARAM_STR);
         $query->bindParam(':tel', $tel, PDO::PARAM_INT);
         $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->bindParam(':adults', $adults, PDO::PARAM_INT);
