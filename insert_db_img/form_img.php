@@ -1,8 +1,7 @@
-<section class="form"> <!--SECTION_7 Invite response form-->
 
 <h2 id="formTitle">Je réponds à l'invitation</h2>
 
-<form method="POST" action="../php/form_traitement.php">
+<form method="POST" action="../insert_db_img/form_traitement_img.php">
   
   <div class="formGrid">
 
@@ -71,5 +70,3 @@
   </div>
 
 </form>
-
-</section>
