@@ -66,9 +66,12 @@ if (!empty($_POST)) {
         // Exécution du la requête SQL avec affichage d'une erreur si la requête n'est pas exécutée
         if (!$query->execute()) {
             die('Une erreur est survenue');
+        } else {
+            include('header.php');
+            echo 'Merci d\'avoir répondu à l\'invitation';
         }
     } else {
-        die('Le formulaire est incomplet');
+        die('Le formulaire est incomplet, merci de remplir tous les champs.');
     }
 }
-// Sécurisation des données
+?>

@@ -103,7 +103,7 @@
             <!--SECTION_6 Places and date for Gourdan castle-->
 
             <div class="receptionContainer">
-                <h3>RECEPTION</h3>
+                <h3>LIEU DE RECEPTION</h3>
                 <p>Château de gourdan<br>
                     1448 Chemin de gourdan<br>
                     07430 Saint-Clair<br>
