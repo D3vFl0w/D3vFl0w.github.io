@@ -4,8 +4,6 @@ A faire :
 
 - Ajouter image png de la rose sous le texte de bienvenue à notre mariage.
 
-- Centré les textes de l'église, mairie, lieu de réception.
-
 1. Faire la partie responsive : Refaire les images + logo à la bonne taille;
 
 2. Mettre un carrousel en javascript + Refaire le nav hamburger;
