@@ -1,8 +1,9 @@
 <?php
 
-// Initialisation des variables en NULL
+
 function form()
 {
+    // Initialisation des variables en NULL
     $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
 
     if (!empty($_POST)) {
