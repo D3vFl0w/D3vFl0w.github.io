@@ -1,7 +1,7 @@
 <?php
 
-
-function form()
+// Formulaire de contact
+function postForm()
 {
     // Initialisation des variables en NULL
     $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
@@ -68,7 +68,6 @@ function form()
             if (!$query->execute()) {
                 die('Une erreur est survenue');
             } else {
-                include('header.php');
                 echo 'Merci d\'avoir répondu à l\'invitation';
             }
         } else {
@@ -77,45 +76,53 @@ function form()
     }
 }
 
-function picture()
+// Formulaire ajouter une photos
+function postPicture()
 {
-    $name = $firstName = "";
+    $name = $size = $type = $bin = "";
 
-    securing($name,$firstName);
+    securing($name);
 
     if (!empty($_POST)) { // Vérification de $_POST n'est pas vide, le formulaire est rempli
         if (
-            isset($_POST["name"], $_POST["firstName"])
-            && !empty($_POST["name"]) && !empty($_POST["firstName"])
+            isset($_POST["picture"])
+            && !empty($_POST["picture"])
         ) {
-            $name = securing($_POST["name"]);
-            $firstName = securing($_POST['firstName']);
+            $name = securing($_POST["picture"]);
 
-            require_once("../php/connect.php");
+            $db = dbConnect();
 
-            $sql = "INSERT INTO invites(Nom, Prenom) VALUES (:name, :firstName)";
+            $sql = "INSERT INTO pictures(nom, taille, type, bin) VALUES (:name, :size, :type, :bin)";
             $query = $db->prepare($sql);
 
             $query->bindValue(":name", $name, PDO::PARAM_STR);
-            $query->bindValue(":firstName", $firstName, PDO::PARAM_STR);
+            $query->bindValue(":size", $size, PDO::PARAM_INT);
+            $query->bindValue(":type", $type, PDO::PARAM_STR);
+            $query->bindValue(":bin", $bin, PDO::PARAM_STR);
 
-            if (!$query->execute()) {
-                die("Une erreur est survneie");
+            if (!$query->execute(array($_FILES["picture"]["name"], $_FILES["picture"]["size"], $_FILES["picture"]["type"], file_get_contents($_FILES["picture"]["bin"])))) {
+                die("Une erreur est survenue");
             }
         } else {
-            die("Le formulaire est incomplet");
+            die("Merci d'avoir ajouté votre photos");
         }
     }
 }
 
-function securing($formData)
+// Fonction pour récuperer les photos qui sont sur la base de donnée
+function getPicture()
 {
-    $formData = trim($formData);
-    $formData = stripslashes($formData);
-    $formData = strip_tags($formData);
-    return $formData;
+    $db = dbConnect();
+
+    $req = $db->prepare('SELECT * FROM pictures where id= ? limit 1');
+    $req->setFetchMode(PDO::FETCH_ASSOC);
+    $req->execute(array($_GET["id"]));
+    $getPicture = $req->fetchAll();
+
+    return $getPicture;
 }
 
+// Fonction pour se connecter à la base de donnée
 function dbConnect()
 {
     define("DBHOST", "localhost");
@@ -131,4 +138,13 @@ function dbConnect()
     } catch (PDOException $e) {
         die('Echec de la connexion : ' . $e->getMessage());
     }
+}
+
+// Fonction pour sécuriser les données envoyés par l'utilisateur
+function securing($formData)
+{
+    $formData = trim($formData);
+    $formData = stripslashes($formData);
+    $formData = strip_tags($formData);
+    return $formData;
 }
