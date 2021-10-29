@@ -1,6 +1,6 @@
 <?php
 
-// Formulaire de contact
+// Formulaire de contact pour enregistrer les données des invités
 function postForm()
 {
     // Initialisation des variables en NULL
@@ -76,7 +76,7 @@ function postForm()
     }
 }
 
-// Formulaire ajouter une photos
+// Formulaire ajouter une photos pour que les invitées ajoutent leurs photos
 function postPicture()
 {
     $name = $size = $type = $bin = "";
@@ -109,7 +109,7 @@ function postPicture()
     }
 }
 
-// Fonction pour récuperer les photos qui sont sur la base de donnée
+// Fonction pour récuperer les photos qui sont sur la base de donnée pour afficher toutes les photos
 function getPicture()
 {
     $db = dbConnect();
