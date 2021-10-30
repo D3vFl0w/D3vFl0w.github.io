@@ -2,6 +2,13 @@
 
 require('model/frontend.php');
 
+// AFFICHER le page de connexion
+function connectPage()
+{
+
+}
+
+
 // AFFICHER la page d'acceuil
 function homePage()
 {
@@ -32,17 +39,20 @@ function addForm($name, $firstName, $tel, $email, $adults, $children, $answer, $
     }
 }
 
+
 // AFFICHER le formulaire
 function formPage()
 {
     require('views/formView.php');
 }
 
+
 // AFFICHER la galerie d'image
 function picturesPage()
 {
     require('views/picturesView.php');
 }
+
 
 // Ajouter des images
 function addPictures()
@@ -57,11 +67,13 @@ function addPictures()
 
 }
 
+
 // AFFICHER la liste des hebergements à proximité
 function accommodationPage()
 {
     require('views/accommodationsView.php');
 }
+
 
 // Fonction pour sécuriser les données envoyés par l'utilisateur
 function securing($formData)

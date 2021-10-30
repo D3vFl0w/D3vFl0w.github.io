@@ -18,7 +18,7 @@
         <nav>
 
             <ul class="navLeft">
-                <li><a href="#history">Notre histoire</a></li>
+                <li><a href="index.php?action=index#history">Notre histoire</a></li>
                 <li><a href="index.php?action=accommodation">Hébergements</a></li>
             </ul>
 

@@ -1,6 +1,13 @@
 <?php
 
-// MODEL pour enregistrer la réponse des invités
+// RECUPERER les identifiants d'un visiteurs via un CODE éxistant
+function connect()
+{
+
+}
+
+
+// ENREGISTRER le formulaire dans la base de donnée
 function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
 {
     $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
@@ -24,7 +31,7 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
     return $postForm;
 }
 
-// MODEL pour ajouter une photos
+// AJOUTER des photos dans la base de donnée
 function postPicture()
 {
     $name = $size = $type = $bin = "";
@@ -42,7 +49,7 @@ function postPicture()
     return $postPicture;
 }
 
-// MODEL pour récuperer les photos qui sont sur la base de donnée pour afficher toutes les photos
+// RECUPERER les photos qui sont sur la base de donnée
 function getPicture()
 {
     $db = dbConnect();
@@ -55,7 +62,7 @@ function getPicture()
     return $getPicture;
 }
 
-// Fonction pour se connecter à la base de donnée
+// CONNEXION à la base de donnée
 function dbConnect()
 {
     define("DBHOST", "localhost");
