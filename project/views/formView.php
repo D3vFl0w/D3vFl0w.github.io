@@ -5,7 +5,7 @@
 
     <h2 id="formTitle">Je réponds à l'invitation</h2>
 
-    <form method="POST" action="php/form_traitement.php">
+    <form method="POST" action="../controller/frontend.php">
 
         <div class="formGrid">
 

@@ -1,7 +1,7 @@
 <?php
 
 // MODEL pour enregistrer la réponse des invités
-function postForm()
+function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
 {
     $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
     $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Question) VALUES(:nom,:prenom,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
@@ -19,7 +19,7 @@ function postForm()
     $query->bindParam(':allergy', $allergy, PDO::PARAM_STR);
     $query->bindParam(':message', $message, PDO::PARAM_STR);
 
-    $postForm = $query->execute();
+    $postForm = $query->execute(array($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message));
 
     return $postForm;
 }

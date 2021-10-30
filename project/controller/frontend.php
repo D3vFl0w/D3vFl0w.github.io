@@ -5,12 +5,13 @@ require('model/frontend.php');
 // Afficher la page d'acceuil
 function homePage()
 {
-    require('views/frontend/indexView.php');
+    require('views/indexView.php');
 }
 
-// Afficher le formulaire
-function formPage()
+// Traiter le formulaire
+function addForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
 {
+    // $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
     $name = securing($_POST['name']);
     $firstName = securing($_POST['firstName']);
     $tel = securing($_POST['tel']);
@@ -21,7 +22,7 @@ function formPage()
     $diet = securing($_POST['diet']);
     $allergy = securing($_POST['allergy']);
     $message = securing($_POST['message']);
-    $postForm = postForm();
+    $postForm = postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message);
 
     if ($postForm === false) {
         die('Impossible d\'enregistrer votre réponse !');
@@ -29,11 +30,22 @@ function formPage()
 
         header('Location: index.php?action=index');
     }
-    require('../views/frontend/formView.php');
 }
 
-// Afficher la galerie d'images
+// Afficher le formulaire
+function formPage()
+{
+    require('views/formView.php');
+}
+
+// Voir la galerie d'image
 function picturesPage()
+{
+    require('views/picturesView.php');
+}
+
+// Ajouter des images
+function addPictures()
 {
     $postPicture = postPicture();
 
@@ -42,17 +54,13 @@ function picturesPage()
     } else {
         header('Location: index.php?action=pictures');
     }
-    require('../views/frontend/picturesView.php');
+
 }
-
-
 
 // Affiche la liste des hebergements à proximité
 function accommodationPage()
 {
-    $accommodation = header('Location: index.php?action=accommodaton');
-
-    require('../views/frontend/accommodationsView.php');
+    require('views/accommodationsView.php');
 }
 
 
