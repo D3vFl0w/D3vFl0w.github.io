@@ -2,7 +2,6 @@
 
 <?php ob_start(); ?>
 <section class="form">
-    <!--SECTION_7 Invite response form-->
 
     <h2 id="formTitle">Je réponds à l'invitation</h2>
 

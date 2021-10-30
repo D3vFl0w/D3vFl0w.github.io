@@ -5,7 +5,7 @@ require('../model/frontend.php');
 // Afficher la page d'acceuil
 function homePage()
 {
-    $home = '';
+    $home = header('Location:index.php?action=index');
 
     require('../view/frontend/indexView.php');
 }
@@ -13,23 +13,46 @@ function homePage()
 // Afficher le formulaire
 function formPage()
 {
-    $form = '';
+    $name = securing($_POST['name']);
+    $firstName = securing($_POST['firstName']);
+    $tel = securing($_POST['tel']);
+    $email = securing($_POST['email']);
+    $adults = securing($_POST['adults']);
+    $children = securing($_POST['children']);
+    $answer = securing($_POST['answer']);
+    $diet = securing($_POST['diet']);
+    $allergy = securing($_POST['allergy']);
+    $message = securing($_POST['message']);
+    $postForm = postForm();
 
+    if ($postForm === false) {
+        die('Impossible d\'enregistrer votre réponse !');
+    } else {
+
+        header('Location: index.php?action=index');
+    }
     require('../view/frontend/formView.php');
 }
 
 // Afficher la galerie d'images
 function picturesPage()
 {
-    $pictures = '';
+    $postPicture = postPicture();
 
+    if ($postPicture === false) {
+        die('Impossible d\'ajouter une photos !');
+    } else {
+        header('Location: index.php?action=pictures');
+    }
     require('../view/frontend/picturesView.php');
 }
+
+
 
 // Affiche la liste des hebergements à proximité
 function accommodationPage()
 {
-    $accommodation = '';
+    $accommodation = header('Location: index.php?action=accommodaton');
 
     require('../view/frontend/accommodationsView.php');
 }
@@ -38,7 +61,7 @@ function accommodationPage()
 
 /************* ROUTEUR ******************
 Test 
-*/
+ */
 
 
 /********** CONTROLLER = Logique, calculs, décisions *******************
@@ -47,7 +70,7 @@ Test
 2. une fonction post --> qui initialise une variable post qui contient la fonction getPost qui récupère un post ciblé + une seconde variable qui contient la fonction getComments qui récupère les commentaires du post ciblé et appel la vue postView
 
 3. une fonction addComment --> qui appelle la fonction postComment via la variable affectedLines + Si la fonction renvoie FALSE on affiche une erreur, si la fonction renvoit TRUE on affiche le commentaire
-*/
+ */
 
 
 /******* MODEL = Acces à la BDD *********************
@@ -60,7 +83,7 @@ Test
 4. une fonction postComment -->
 
 5. une fonction dbConnect --> Connexion à la BDD
-*/
+ */
 
 
 /************* VIEWS = Affichage de la page ******************
@@ -69,7 +92,7 @@ Test
 2. une vue post -->
 
 3. une vue template -->
-*/
+ */
 
 
 
