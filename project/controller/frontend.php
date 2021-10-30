@@ -5,7 +5,7 @@ require('model/frontend.php');
 // Afficher la page d'acceuil
 function homePage()
 {
-    require('view/frontend/indexView.php');
+    require('views/frontend/indexView.php');
 }
 
 // Afficher le formulaire
@@ -29,7 +29,7 @@ function formPage()
 
         header('Location: index.php?action=index');
     }
-    require('../view/frontend/formView.php');
+    require('../views/frontend/formView.php');
 }
 
 // Afficher la galerie d'images
@@ -42,7 +42,7 @@ function picturesPage()
     } else {
         header('Location: index.php?action=pictures');
     }
-    require('../view/frontend/picturesView.php');
+    require('../views/frontend/picturesView.php');
 }
 
 
@@ -52,7 +52,7 @@ function accommodationPage()
 {
     $accommodation = header('Location: index.php?action=accommodaton');
 
-    require('../view/frontend/accommodationsView.php');
+    require('../views/frontend/accommodationsView.php');
 }
 
 
