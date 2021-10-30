@@ -73,14 +73,7 @@ function dbConnect()
     }
 }
 
-// Fonction pour sécuriser les données envoyés par l'utilisateur
-function securing($formData)
-{
-    $formData = trim($formData);
-    $formData = stripslashes($formData);
-    $formData = strip_tags($formData);
-    return $formData;
-}
+
 
 
 
