@@ -5,7 +5,6 @@ require('model/frontend.php');
 // AFFICHER le page de connexion
 function connectPage()
 {
-
 }
 
 
@@ -59,12 +58,22 @@ function addPictures()
 {
     $postPicture = postPicture();
 
-    if ($postPicture === false) {
-        die('Impossible d\'ajouter une photos !');
-    } else {
+    if ($postPicture === true) {
+        if (isset($_FILES['picture']) && $_FILES['picture']['error'] == 0) {
+            if ($_FILES['picture']['size'] <= 4000000) {
+                $fileInfo = pathinfo($_FILES['picture']['name']);
+                $extension = $fileInfo['extension'];
+                $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                if (in_array($extension, $allowedExtensions)) {
+                    move_uploaded_file($_FILES['picture']['tmp_name'], 'uploads' . basename($_FILES['picture']['name']));
+                    echo 'L\'envoi a bien été effectué';
+                }
+            }
+        }
         header('Location: index.php?action=pictures');
+    } else {
+        die('Impossible d\'ajouter une photos !');
     }
-
 }
 
 
@@ -83,4 +92,3 @@ function securing($formData)
     $formData = strip_tags($formData);
     return $formData;
 }
-

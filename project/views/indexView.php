@@ -105,6 +105,13 @@
 
     </section>
 
+    <section class="weather">
+        <article>
+            <h2> Quel temps fait il ?</h2>
+            <iframe src="" frameborder="0"></iframe>
+        </article>
+    </section>
+
 </main>
 
 <footer>
