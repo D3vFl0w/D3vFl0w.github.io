@@ -1,12 +1,3 @@
-/************
-PETITS ECRANS
-*************
-
-Mettre le Nav hamburger en haut de l'écrans;
-
-*************/
-
-
 /*-------------------*\
   #GENERALS-SETTINGS
 \*-------------------*/
@@ -68,7 +59,7 @@ button {
 \*----------------*/
 
 header {
-  background: url('img/ring-rose.jpg') fixed center/cover;
+  background: url('../img/ring-rose.jpg') fixed center/cover;
   height: 100vh;
 } 
 

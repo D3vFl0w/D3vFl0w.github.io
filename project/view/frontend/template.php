@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Le mariage d'Éléonore et de Florian est prévu pour le 17/09/2022.">
     <link rel="shortcut icon" href="img/coeurs.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="public/css/styles.css">
     <title><?= $title ?></title>
 </head>
 

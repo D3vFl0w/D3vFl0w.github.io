@@ -1,13 +1,11 @@
 <?php
 
-require('../model/frontend.php');
+require('model/frontend.php');
 
 // Afficher la page d'acceuil
 function homePage()
 {
-    $home = header('Location:index.php?action=index');
-
-    require('../view/frontend/indexView.php');
+    require('view/frontend/indexView.php');
 }
 
 // Afficher le formulaire
