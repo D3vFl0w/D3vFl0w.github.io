@@ -113,7 +113,7 @@ hgroup h1 {
 \*------------------*/
 
 .backgroundDate{
-  background: url('./img/fond_date_r.png') center/ 1000px no-repeat;
+  background: url('../img/fond_date_r.png') center/ 1000px no-repeat;
   height: 750px;
   display: flex;
   justify-content: center;

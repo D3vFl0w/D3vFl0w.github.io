@@ -23,7 +23,7 @@
             </ul>
 
             <div class="navImgContainer">
-                <a class="navImg" href="#"><img src="/img/logo.png" alt="logo du site" height="90px"></a>
+                <a class="navImg" href="#"><img src="../../public/img/logo.png" alt="logo du site" height="90px"></a>
             </div>
 
             <ul class="navRight">
