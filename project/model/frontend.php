@@ -14,19 +14,19 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
     $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Question) VALUES(:nom,:prenom,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
 
     $db = dbConnect();
-    $query = $db->prepare($sql);
-    $query->bindParam(':nom', $name, PDO::PARAM_STR);
-    $query->bindParam(':prenom', $firstName, PDO::PARAM_STR);
-    $query->bindParam(':tel', $tel, PDO::PARAM_INT);
-    $query->bindParam(':email', $email, PDO::PARAM_STR);
-    $query->bindParam(':adults', $adults, PDO::PARAM_INT);
-    $query->bindParam(':children', $children, PDO::PARAM_INT);
-    $query->bindParam(':answer', $answer, PDO::PARAM_BOOL);
-    $query->bindParam(':diet', $diet, PDO::PARAM_STR);
-    $query->bindParam(':allergy', $allergy, PDO::PARAM_STR);
-    $query->bindParam(':message', $message, PDO::PARAM_STR);
+    $postForm = $db->prepare($sql);
+    $postForm->bindParam(':nom', $name, PDO::PARAM_STR);
+    $postForm->bindParam(':prenom', $firstName, PDO::PARAM_STR);
+    $postForm->bindParam(':tel', $tel, PDO::PARAM_INT);
+    $postForm->bindParam(':email', $email, PDO::PARAM_STR);
+    $postForm->bindParam(':adults', $adults, PDO::PARAM_INT);
+    $postForm->bindParam(':children', $children, PDO::PARAM_INT);
+    $postForm->bindParam(':answer', $answer, PDO::PARAM_BOOL);
+    $postForm->bindParam(':diet', $diet, PDO::PARAM_STR);
+    $postForm->bindParam(':allergy', $allergy, PDO::PARAM_STR);
+    $postForm->bindParam(':message', $message, PDO::PARAM_STR);
 
-    $postForm = $query->execute(array($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message));
+    $postForm->execute(array($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message));
 
     return $postForm;
 }
@@ -38,13 +38,13 @@ function postPicture()
     $sql = "INSERT INTO pictures(nom, taille, type, bin) VALUES (:name, :size, :type, :bin)";
 
     $db = dbConnect();
-    $query = $db->prepare($sql);
-    $query->bindValue(":name", $name, PDO::PARAM_STR);
-    $query->bindValue(":size", $size, PDO::PARAM_INT);
-    $query->bindValue(":type", $type, PDO::PARAM_STR);
-    $query->bindValue(":bin", $bin, PDO::PARAM_STR);
+    $postPicture = $db->prepare($sql);
+    $postPicture->bindValue(":name", $name, PDO::PARAM_STR);
+    $postPicture->bindValue(":size", $size, PDO::PARAM_INT);
+    $postPicture->bindValue(":type", $type, PDO::PARAM_STR);
+    $postPicture->bindValue(":bin", $bin, PDO::PARAM_STR);
 
-    $postPicture = $query->execute(array($_FILES["picture"]["name"], $_FILES["picture"]["size"], $_FILES["picture"]["type"], file_get_contents($_FILES["picture"]["bin"])));
+    $postPicture->execute(array($_FILES["picture"]["name"], $_FILES["picture"]["size"], $_FILES["picture"]["type"], file_get_contents($_FILES["picture"]["bin"])));
 
     return $postPicture;
 }
@@ -54,10 +54,10 @@ function getPicture()
 {
     $db = dbConnect();
 
-    $req = $db->prepare('SELECT * FROM pictures where id= ? limit 1');
-    $req->setFetchMode(PDO::FETCH_ASSOC);
-    $req->execute(array($_GET["id"]));
-    $getPicture = $req->fetchAll();
+    $getPicture = $db->prepare('SELECT * FROM pictures where id= ? limit 1');
+    $getPicture->setFetchMode(PDO::FETCH_ASSOC);
+    $getPicture->execute(array($_GET["id"]));
+    $getPicture->fetchAll();
 
     return $getPicture;
 }
