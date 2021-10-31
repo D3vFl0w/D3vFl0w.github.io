@@ -3,20 +3,18 @@
 // RECUPERER les identifiants d'un visiteurs via un CODE éxistant
 function connect()
 {
-
 }
 
 
 // ENREGISTRER le formulaire dans la base de donnée
 function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
 {
-    // $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
-    $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Question) VALUES(:nom,:prenom,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
+    $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Question) VALUES(:name,:firstName,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
 
     $db = dbConnect();
     $postForm = $db->prepare($sql);
-    $postForm->bindParam(':nom', $name, PDO::PARAM_STR);
-    $postForm->bindParam(':prenom', $firstName, PDO::PARAM_STR);
+    $postForm->bindParam(':name', $name, PDO::PARAM_STR);
+    $postForm->bindParam(':firstName', $firstName, PDO::PARAM_STR);
     $postForm->bindParam(':tel', $tel, PDO::PARAM_INT);
     $postForm->bindParam(':email', $email, PDO::PARAM_STR);
     $postForm->bindParam(':adults', $adults, PDO::PARAM_INT);
@@ -26,7 +24,7 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
     $postForm->bindParam(':allergy', $allergy, PDO::PARAM_STR);
     $postForm->bindParam(':message', $message, PDO::PARAM_STR);
 
-    $postForm->execute(array($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message));
+    $postForm->execute($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message);
 
     return $postForm;
 }
@@ -71,13 +69,8 @@ function dbConnect()
     define("DBNAME", "mariage");
 
     $dns = "mysql:dbname=" . DBNAME . ";host=" . DBHOST;
-
-    try {
-        $db = new PDO($dns, DBUSER, DBPASS);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die('Echec de la connexion : ' . $e->getMessage());
-    }
+    $db = new PDO($dns, DBUSER, DBPASS);
+    return $db;
 }
 
 
