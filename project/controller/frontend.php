@@ -17,30 +17,6 @@ function homePage()
 // Traiter le formulaire
 function addForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
 {
-    // $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
-    // $name = $_POST['name'];
-    // $firstName = $_POST['firstName'];
-    // $tel = $_POST['tel'];
-    // $email = $_POST['email'];
-    // $adults = $_POST['adults'];
-    // $children = $_POST['children'];
-    // $answer = $_POST['answer'];
-    // $diet = $_POST['diet'];
-    // $allergy = $_POST['allergy'];
-    // $message = $_POST['message'];
-    
-    // $name = securing($_POST['name']);
-    // $firstName = securing($_POST['firstName']);
-    // $tel = securing($_POST['tel']);
-    // $email = securing($_POST['email']);
-    // $adults = securing($_POST['adults']);
-    // $children = securing($_POST['children']);
-    // $answer = securing($_POST['answer']);
-    // $diet = securing($_POST['diet']);
-    // $allergy = securing($_POST['allergy']);
-    // $message = securing($_POST['message']);
-
-
     $postForm = postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message);
 
     if ($postForm === false) {

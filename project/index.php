@@ -64,8 +64,6 @@ try {
     echo 'Erreur : ' . $e->getMessage();
 }
 
-// $name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message
-
 
 /* BESOIN
 A - ENREGISTRER un formulaire sur la BDD
