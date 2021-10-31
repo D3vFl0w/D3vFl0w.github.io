@@ -24,7 +24,7 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
     $postForm->bindParam(':allergy', $allergy, PDO::PARAM_STR);
     $postForm->bindParam(':message', $message, PDO::PARAM_STR);
 
-    $postForm->execute($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message);
+    $postForm->execute();
 
     return $postForm;
 }
