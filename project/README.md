@@ -3,17 +3,16 @@
 Reste à faire en FRONTEND :
     - Ajouter image png de la rose sous le texte de bienvenue à notre mariage;
     - Section dress code ??;
-    - Faire un footer conforme avec credit;
-    - Mettre un carrousel en javascript;
-    - Faire un nav hamburger;
-    - Terminer la partie responsive : Refaire les images + logo à la bonne taille;
     - SECTION -> API météo;
-    - SECTION -> Compte à rebour JS ou PHP ??;
+    - Faire un footer conforme avec credit;
+    - Terminer la partie responsive : Refaire les images + logo à la bonne taille;
     - Faire le refactoring du CSS;
     - Utiliser SASS;
+    - Mettre un carrousel en javascript;
+    - Faire un nav hamburger en JS;
+    - SECTION -> Compte à rebour JS ou PHP ??;
 
 Reste à faire en BACKEND :
-    1 - ENREGISTRER les données du formulaire;
     2 - ENREGISTRER les images dans la DB;
     3 - AFFICHER toutes les images;
     4 - SECURISER la page d'accueil;

@@ -3,10 +3,10 @@
 <?php ob_start(); ?>
 
 <!-- Ajouter une image -->
-<form action="/project/controller/frontend.php" method="post" enctype="multipart/form-data">
+<form action="index.php?action=addPictures" method="post" enctype="multipart/form-data">
     <label for="picture">Choisir une image (max 4Mo) format(.jpg , .jpeg , .png)</label>
     <input type="file" name="picture" id="picture">
-    <input type="submit" name="Valider" value="Valider">
+    <input type="submit" name="submit" value="Valider">
 </form>
 
 <!-- Afficher toutes les images -->
