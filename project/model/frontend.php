@@ -10,7 +10,7 @@ function connect()
 // ENREGISTRER le formulaire dans la base de donnée
 function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
 {
-    $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
+    // $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
     $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Question) VALUES(:nom,:prenom,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
 
     $db = dbConnect();

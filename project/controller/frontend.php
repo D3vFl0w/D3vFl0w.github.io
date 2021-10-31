@@ -17,7 +17,6 @@ function homePage()
 // Traiter le formulaire
 function addForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
 {
-    // $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
     $name = securing($_POST['name']);
     $firstName = securing($_POST['firstName']);
     $tel = securing($_POST['tel']);
@@ -28,13 +27,14 @@ function addForm($name, $firstName, $tel, $email, $adults, $children, $answer, $
     $diet = securing($_POST['diet']);
     $allergy = securing($_POST['allergy']);
     $message = securing($_POST['message']);
+
+    // $name = $firstName = $tel = $email = $adults = $children = $answer = $diet = $allergy = $message = "";
     $postForm = postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message);
 
     if ($postForm === false) {
         die('Impossible d\'enregistrer votre réponse !');
     } else {
-
-        header('Location: index.php?action=index');
+        header('Location:index.php?action=index');
     }
 }
 
