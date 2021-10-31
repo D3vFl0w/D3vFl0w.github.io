@@ -1,8 +1,7 @@
 # D3vFl0w.github.io
 
 Reste à faire en FRONTEND :
-    - Ajouter image png de la rose sous le texte de bienvenue à notre mariage;
-    - Section dress code ??;
+    - Mettre le logo de la fleur entre les sections history et townhall;
     - SECTION -> API météo;
     - Faire un footer conforme avec credit;
     - Terminer la partie responsive : Refaire les images + logo à la bonne taille;
