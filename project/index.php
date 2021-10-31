@@ -53,7 +53,7 @@ try {
         } elseif ($_GET['action'] == 'pictures') {
             picturesPage();
         } elseif ($_GET['action'] == 'addPictures') {
-            addPictures($name, $size, $type, $bin);
+            addPictures($namePicture, $size, $type, $bin);
         } elseif ($_GET['action'] == 'accommodation') {
             accommodationPage();
         } else {

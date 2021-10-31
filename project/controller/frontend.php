@@ -42,18 +42,36 @@ function picturesPage()
 
 
 // Ajouter des images
-function addPictures($name, $size, $type, $bin)
+function addPictures($namePicture, $size, $type, $bin)
 {
-    $postPicture = postPicture($name, $size, $type, $bin);
+    $postPicture = postPicture($namePicture, $size, $type, $bin);
 
     if ($postPicture === true) {
-        if (isset($_FILES['picture']) && $_FILES['picture']['error'] == 0) {
-            if ($_FILES['picture']['size'] <= 4000000) {
-                $fileInfo = pathinfo($_FILES['picture']['name']);
+        if (isset($_FILES['uploadedPicture']) && $_FILES['uploadedPicture']['size'] <= 4000000) {
+            if ($_FILES['piuploadedPicturecture']['error']) {
+                switch ($_FILES['uploadedPicture']['error']) {
+                    case 1:
+                        throw new Exception("Error Processing Request",);
+                        echo "Le fichier dépasse la limite autorisée par le serveur (fichier php.ini) !";
+                        break;
+                    case 2:
+                        throw new Exception("Error Processing Request",);
+                        echo "Le fichier dépasse la limite autorisée dans le formulaire HTML !";
+                        break;
+                    case 3:
+                        throw new Exception("Error Processing Request",);
+                        echo "L'envoi du fichier a été interrompu pendant le transfert !";
+                        break;
+                    case 4:
+                        throw new Exception("Error Processing Request",);
+                        echo "Le fichier que vous avez envoyé a une taille nulle !";
+                        break;
+                }
+                $fileInfo = pathinfo($_FILES['uploadedPicture']['name']);
                 $extension = $fileInfo['extension'];
                 $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
                 if (in_array($extension, $allowedExtensions)) {
-                    move_uploaded_file($_FILES['picture']['tmp_name'], 'uploads' . basename($_FILES['picture']['name']));
+                    move_uploaded_file($_FILES['uploadedPicture']['tmp_name'], 'uploaded' . basename($_FILES['uploadedPicture']['name']));
                     echo 'L\'envoi a bien été effectué';
                 }
             }

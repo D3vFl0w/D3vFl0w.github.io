@@ -32,7 +32,6 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
 // AJOUTER des photos dans la base de donnée
 function postPicture($name, $size, $type, $bin)
 {
-    // $name = $size = $type = $bin = "";
     $sql = "INSERT INTO pictures(nom, taille, type, bin) VALUES (:name, :size, :type, :bin)";
 
     $db = dbConnect();
