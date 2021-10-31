@@ -42,9 +42,9 @@ function picturesPage()
 
 
 // Ajouter des images
-function addPictures()
+function addPictures($name, $size, $type, $bin)
 {
-    $postPicture = postPicture();
+    $postPicture = postPicture($name, $size, $type, $bin);
 
     if ($postPicture === true) {
         if (isset($_FILES['picture']) && $_FILES['picture']['error'] == 0) {

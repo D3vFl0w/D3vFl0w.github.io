@@ -30,9 +30,9 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
 }
 
 // AJOUTER des photos dans la base de donnée
-function postPicture()
+function postPicture($name, $size, $type, $bin)
 {
-    $name = $size = $type = $bin = "";
+    // $name = $size = $type = $bin = "";
     $sql = "INSERT INTO pictures(nom, taille, type, bin) VALUES (:name, :size, :type, :bin)";
 
     $db = dbConnect();
@@ -42,7 +42,7 @@ function postPicture()
     $postPicture->bindValue(":type", $type, PDO::PARAM_STR);
     $postPicture->bindValue(":bin", $bin, PDO::PARAM_STR);
 
-    $postPicture->execute(array($_FILES["picture"]["name"], $_FILES["picture"]["size"], $_FILES["picture"]["type"], file_get_contents($_FILES["picture"]["bin"])));
+    $postPicture->execute();
 
     return $postPicture;
 }
