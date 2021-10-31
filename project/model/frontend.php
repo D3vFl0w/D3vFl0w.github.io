@@ -19,7 +19,7 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
     $postForm->bindParam(':email', $email, PDO::PARAM_STR);
     $postForm->bindParam(':adults', $adults, PDO::PARAM_INT);
     $postForm->bindParam(':children', $children, PDO::PARAM_INT);
-    $postForm->bindParam(':answer', $answer, PDO::PARAM_BOOL);
+    $postForm->bindParam(':answer', $answer, PDO::PARAM_STR);
     $postForm->bindParam(':diet', $diet, PDO::PARAM_STR);
     $postForm->bindParam(':allergy', $allergy, PDO::PARAM_STR);
     $postForm->bindParam(':message', $message, PDO::PARAM_STR);
