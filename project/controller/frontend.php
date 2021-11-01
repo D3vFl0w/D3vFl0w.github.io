@@ -64,14 +64,20 @@ function addPictures()
     }
     $newName = md5(uniqid());
     $newFileName = __DIR__ . "/../public/img/uploaded/$newName.$extensionFile";
-    echo $newFileName;
 
     if (!move_uploaded_file($_FILES['uploadedPicture']['tmp_name'], $newFileName)) {
         throw new Exception("Le téléchargement à échoué, mauvais chemin de dossier.");
     }
     chmod($newFileName, 0644);
+
+    $namePicture= $newName;
+    postLink($namePicture,$newFileName,$fileSize,$fileType);
+
     header('Location : index.php?action=pictures');
 }
+
+// AFFICHER les images dans le dossier
+
 
 
 // AFFICHER la liste des hebergements à proximité

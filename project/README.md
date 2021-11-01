@@ -12,7 +12,6 @@ Reste à faire en FRONTEND :
     - SECTION -> Compte à rebour JS ou PHP ??;
 
 Reste à faire en BACKEND :
-    2 - ENREGISTRER les images dans la DB;
     3 - AFFICHER toutes les images;
     4 - SECURISER la page d'accueil;
     5 - Refactoriser en POO;

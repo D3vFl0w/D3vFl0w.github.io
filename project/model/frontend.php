@@ -29,6 +29,23 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
     return $postForm;
 }
 
+// ENREGISTRER le lien de l'image uploadée 
+function postLink($namePicture,$newFileName,$fileSize,$fileType)
+{
+    $sql = "INSERT INTO pictures(name, link, size, type, date_creation) VALUES(:name, :link, :size, :type, (NOW()))";
+
+    $db = dbConnect();
+    $postPicture = $db->prepare($sql);
+    $postPicture->bindValue(':name', $namePicture, PDO::PARAM_STR);
+    $postPicture->bindValue(':link', $newFileName, PDO::PARAM_STR);
+    $postPicture->bindValue(':size', $fileSize, PDO::PARAM_INT);
+    $postPicture->bindValue(':type', $fileType, PDO::PARAM_STR);
+
+    $postPicture->execute();
+
+    return $postPicture;
+}
+
 
 // CONNEXION à la base de donnée
 function dbConnect()
@@ -42,41 +59,3 @@ function dbConnect()
     $db = new PDO($dns, DBUSER, DBPASS);
     return $db;
 }
-
-
-
-
-
-/*// ************** ANCIEN CODE *******************
-
-// Formulaire ajouter une photos pour que les invitées ajoutent leurs photos
-// function postPicture()
-// {
-//     $name = $size = $type = $bin = "";
-
-//     securing($name);
-
-//     if (!empty($_POST)) { // Vérification de $_POST n'est pas vide, le formulaire est rempli
-//         if (
-//             isset($_POST["picture"])
-//             && !empty($_POST["picture"])
-//         ) {
-//             $name = securing($_POST["picture"]);
-
-//             $db = dbConnect();
-
-//             $sql = "INSERT INTO pictures(nom, taille, type, bin) VALUES (:name, :size, :type, :bin)";
-//             $query = $db->prepare($sql);
-
-//             $query->bindValue(":name", $name, PDO::PARAM_STR);
-//             $query->bindValue(":size", $size, PDO::PARAM_INT);
-//             $query->bindValue(":type", $type, PDO::PARAM_STR);
-//             $query->bindValue(":bin", $bin, PDO::PARAM_STR);
-
-//             if (!$query->execute(array($_FILES["picture"]["name"], $_FILES["picture"]["size"], $_FILES["picture"]["type"], file_get_contents($_FILES["picture"]["bin"])))) {
-//                 die("Une erreur est survenue");
-//             }
-//         } else {
-//             die("Merci d'avoir ajouté votre photos");
-//         }
-//     }*/
