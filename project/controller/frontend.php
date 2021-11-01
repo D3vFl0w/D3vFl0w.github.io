@@ -48,23 +48,19 @@ function addPictures($namePicture, $size, $type, $bin)
 
     if ($postPicture === true) {
         if (isset($_FILES['uploadedPicture']) && $_FILES['uploadedPicture']['size'] <= 4000000) {
-            if ($_FILES['piuploadedPicturecture']['error']) {
+            if ($_FILES['uploadedPicture']['error']) {
                 switch ($_FILES['uploadedPicture']['error']) {
                     case 1:
-                        throw new Exception("Error Processing Request",);
-                        echo "Le fichier dépasse la limite autorisée par le serveur (fichier php.ini) !";
+                        throw new Exception("Erreur : Le fichier dépasse la limite autorisée par le serveur (fichier php.ini)",);
                         break;
                     case 2:
-                        throw new Exception("Error Processing Request",);
-                        echo "Le fichier dépasse la limite autorisée dans le formulaire HTML !";
+                        throw new Exception("Erreur : Le fichier dépasse la limite autorisée dans le formulaire HTML !",);
                         break;
                     case 3:
-                        throw new Exception("Error Processing Request",);
-                        echo "L'envoi du fichier a été interrompu pendant le transfert !";
+                        throw new Exception("Erreur : L'envoi du fichier a été interrompu pendant le transfert !",);
                         break;
                     case 4:
-                        throw new Exception("Error Processing Request",);
-                        echo "Le fichier que vous avez envoyé a une taille nulle !";
+                        throw new Exception("Erreur : Le fichier que vous avez envoyé a une taille nulle !");
                         break;
                 }
                 $fileInfo = pathinfo($_FILES['uploadedPicture']['name']);

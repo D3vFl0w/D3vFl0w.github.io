@@ -18,3 +18,5 @@ Reste à faire en BACKEND :
     5 - Refactoriser en POO;
     6 - Vérifier s'il y a pas d'autres dossiers et/ou fichiers à créer;
 
+NE JAMAIS STOCKER DES FICHIERS DANS UNE BDD, ça prend trop de place, ça ralenti le traitement
+STOCKER LES FICHIER DANS UN DOSSIER et on stock son NOM dans la BDD et pas son chemin
