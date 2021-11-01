@@ -42,40 +42,35 @@ function picturesPage()
 
 
 // Ajouter des images
-function addPictures($namePicture, $size, $type, $bin)
+function addPictures()
 {
-    $postPicture = postPicture($namePicture, $size, $type, $bin);
+    $allowed = [
+        'jpg' => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'png' => 'image/png',
+        'gif' => 'image/gif'
+    ];
+    $fileName = $_FILES['uploadedPicture']['name'];
+    $fileType = $_FILES['uploadedPicture']['type'];
+    $fileSize = $_FILES['uploadedPicture']['size'];
 
-    if ($postPicture === true) {
-        if (isset($_FILES['uploadedPicture']) && $_FILES['uploadedPicture']['size'] <= 4000000) {
-            if ($_FILES['uploadedPicture']['error']) {
-                switch ($_FILES['uploadedPicture']['error']) {
-                    case 1:
-                        throw new Exception("Erreur : Le fichier dépasse la limite autorisée par le serveur (fichier php.ini)",);
-                        break;
-                    case 2:
-                        throw new Exception("Erreur : Le fichier dépasse la limite autorisée dans le formulaire HTML !",);
-                        break;
-                    case 3:
-                        throw new Exception("Erreur : L'envoi du fichier a été interrompu pendant le transfert !",);
-                        break;
-                    case 4:
-                        throw new Exception("Erreur : Le fichier que vous avez envoyé a une taille nulle !");
-                        break;
-                }
-                $fileInfo = pathinfo($_FILES['uploadedPicture']['name']);
-                $extension = $fileInfo['extension'];
-                $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-                if (in_array($extension, $allowedExtensions)) {
-                    move_uploaded_file($_FILES['uploadedPicture']['tmp_name'], 'uploaded' . basename($_FILES['uploadedPicture']['name']));
-                    echo 'L\'envoi a bien été effectué';
-                }
-            }
-        }
-        header('Location: index.php?action=pictures');
-    } else {
-        throw new Exception('Impossible d\'ajouter une photos !');
+    $extensionFile = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+    if (!array_key_exists($extensionFile, $allowed) || !in_array($fileType, $allowed)) {
+        throw new Exception("Erreur : Format du fichier incorect. Pour rappel, seul les .jpg, .jpeg et .gif sont accéptés",);
     }
+    if ($fileSize > 4194304) {
+        throw new Exception("Erreur : Fichier trop volumineux. Taille max accepté = 4Mo.");
+    }
+    $newName = md5(uniqid());
+    $newFileName = __DIR__ . "/../public/img/uploaded/$newName.$extensionFile";
+    echo $newFileName;
+
+    if (!move_uploaded_file($_FILES['uploadedPicture']['tmp_name'], $newFileName)) {
+        throw new Exception("Le téléchargement à échoué, mauvais chemin de dossier.");
+    }
+    chmod($newFileName, 0644);
+    header('Location : index.php?action=pictures');
 }
 
 

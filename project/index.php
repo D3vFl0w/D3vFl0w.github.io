@@ -51,11 +51,13 @@ try {
         } elseif ($_GET['action'] == 'pictures') {
             picturesPage();
         } elseif ($_GET['action'] == 'addPictures') {
-            if (isset($_FILES['uploadedPicture']) /*&& $_FILES['uploadedPicture']['error'] === 0*/) {
+            if (isset($_FILES['uploadedPicture']) && $_FILES['uploadedPicture']['error'] === 0) {
+                addPictures();
+            } else {
                 if ($_FILES['uploadedPicture']['error']) {
                     switch ($_FILES['uploadedPicture']['error']) {
                         case 1:
-                            throw new Exception("Erreur : Le fichier dépasse la limite autorisée par le serveur (fichier php.ini)",);
+                            throw new Exception("Erreur : Le fichier dépasse la limite autorisée par le serveur (fichier php.ini (upload_max_filesize))",);
                             break;
                         case 2:
                             throw new Exception("Erreur : Le fichier dépasse la limite autorisée dans le formulaire HTML !",);
@@ -66,40 +68,18 @@ try {
                         case 4:
                             throw new Exception("Erreur : Le fichier que vous avez envoyé a une taille nulle !");
                             break;
+                        case 6:
+                            throw new Exception("Erreur : Un dossier temporaire est manquant.");
+                            break;
+                        case 7:
+                            throw new Exception("Erreur : Échec de l'écriture du fichier sur le disque.");
+                            break;
+                        case 8:
+                            throw new Exception("Erreur : Une extension PHP a arrêté l'envoi de fichier. PHP ne propose aucun moyen de déterminer quelle extension est en cause. L'examen du phpinfo() peut aider.");
+                            break;
                     }
                 }
-                $allowed = [
-                    'jpg' => 'image/jpeg',
-                    'jpeg' => 'image/jpeg',
-                    'png' => 'image/png',
-                    'gif' => 'image/gif'
-                ];
-                $fileName = $_FILES['uploadedPicture']['name'];
-                $fileType = $_FILES['uploadedPicture']['type'];
-                $fileSize = $_FILES['uploadedPicture']['size'];
-
-                $extensionFile = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-
-                if (!array_key_exists($extensionFile, $allowed) || !in_array($fileType, $allowed)) {
-                    throw new Exception("Erreur : Format du fichier incorect. Pour rappel, seul les .jpg, .jpeg et .gif sont accéptés",);
-                }
-                if ($fileSize > 4000000) {
-                    throw new Exception("Erreur : Fichier trop volumineux. Taille max accepté = 4Mo.");
-                }
-                $newName = md5(uniqid());
-                $newFileName = __DIR__ . "/public/img/uploaded/$newName.$extensionFile";
-
-                if (!move_uploaded_file($_FILES['uploadedPicture']['tmp_name'], $newFileName)) {
-                    throw new Exception("Le téléchargement à échoué, mauvais chemin de dossier.");
-                }
-                chmod($newFileName, 0644);
-                header('Location : index.php?action=pictures');
-            } else {
-                throw new Exception("Error Processing Request");
             }
-
-            // addPictures();}
-
         } elseif ($_GET['action'] == 'accommodation') {
             accommodationPage();
         } else {

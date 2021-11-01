@@ -29,35 +29,6 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
     return $postForm;
 }
 
-// AJOUTER des photos dans la base de donnée
-function postPicture($name, $size, $type, $bin)
-{
-    $sql = "INSERT INTO pictures(nom, taille, type, bin) VALUES (:name, :size, :type, :bin)";
-
-    $db = dbConnect();
-    $postPicture = $db->prepare($sql);
-    $postPicture->bindValue(":name", $name, PDO::PARAM_STR);
-    $postPicture->bindValue(":size", $size, PDO::PARAM_INT);
-    $postPicture->bindValue(":type", $type, PDO::PARAM_STR);
-    $postPicture->bindValue(":bin", $bin, PDO::PARAM_STR);
-
-    $postPicture->execute();
-
-    return $postPicture;
-}
-
-// RECUPERER les photos qui sont sur la base de donnée
-function getPicture()
-{
-    $db = dbConnect();
-
-    $getPicture = $db->prepare('SELECT * FROM pictures where id= ? limit 1');
-    $getPicture->setFetchMode(PDO::FETCH_ASSOC);
-    $getPicture->execute(array($_GET["id"]));
-    $getPicture->fetchAll();
-
-    return $getPicture;
-}
 
 // CONNEXION à la base de donnée
 function dbConnect()
