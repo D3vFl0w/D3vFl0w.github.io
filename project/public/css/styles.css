@@ -59,7 +59,7 @@ button {
 \*----------------*/
 
 header {
-  background: url('../../public/img/ring-rose.jpg') fixed center/cover;
+  background: url('../../public/img/img_site/ring-rose.jpg') fixed center/cover;
   height: 100vh;
 } 
 
@@ -113,7 +113,7 @@ hgroup h1 {
 \*------------------*/
 
 .backgroundDate{
-  background: url('../img/fond_date_r.png') center/ 1000px no-repeat;
+  background: url('../../public/img/img_site/fond_date_r.png') center/ 1000px no-repeat;
   height: 750px;
   display: flex;
   justify-content: center;
@@ -175,7 +175,7 @@ hgroup h1 {
 \*---------------------*/
 
 #townHall .img {
-  background: url('../img/mairie2.png') center/cover ;
+  background: url('../../public/img/img_site/mairie2.png') center/cover ;
 }
 
 /*------------------*\
@@ -189,7 +189,7 @@ hgroup h1 {
 }
 
 #church .img {
-  background: url('../img/mairie2.png') center/cover;
+  background: url('../../public/img/img_site/mairie2.png') center/cover;
 }
 
 /*---------------------*\
@@ -197,7 +197,7 @@ hgroup h1 {
 \*---------------------*/
 
 #reception .img {
-  background: url('../img/reception.jpg') center/cover;
+  background: url('../../public/img/img_site/reception.jpg') center/cover;
 }
 
 
@@ -386,17 +386,17 @@ button:hover {
   }
 
   #townHall .img{
-    background: url('../img/mairie.jpg') center/cover;
+    background: url('../../public/img/img_site/mairie.jpg') center/cover;
     height: 72%
   }
 
   #church .img{
-    background: url('../img/eglise.jpg') center/cover;
+    background: url('../../public/img/img_site/eglise.jpg') center/cover;
     height: 72%;
   }
 
   #reception .img{
-    background: url('../img/reception.jpg') center/cover;
+    background: url('../../public/img/img_site/reception.jpg') center/cover;
     height: 72%;
   }
 
