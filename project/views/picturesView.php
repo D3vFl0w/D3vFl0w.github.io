@@ -11,9 +11,14 @@
 </form>
 
 <!-- Afficher toutes les images -->
-
-
-
+<?php
+getLink();
+foreach ($dataPictures as $dataPicture) { ?>
+    <div class="picturesGallery">
+        <img src="<?= $dataPicture['link'] ?>" alt="<?= $dataPicture['name'] ?>">
+    </div>
+<?php }
+?>
 
 <?php $content = ob_get_clean(); ?>
 

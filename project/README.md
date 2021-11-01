@@ -12,7 +12,7 @@ Reste à faire en FRONTEND :
     - SECTION -> Compte à rebour JS ou PHP ??;
 
 Reste à faire en BACKEND :
-    3 - AFFICHER toutes les images;
+    3 - AFFICHER toutes les images(BUG!);
     4 - SECURISER la page d'accueil;
     5 - Refactoriser en POO;
     6 - Vérifier s'il y a pas d'autres dossiers et/ou fichiers à créer;

@@ -46,6 +46,24 @@ function postLink($namePicture,$newFileName,$fileSize,$fileType)
     return $postPicture;
 }
 
+// RECUPERER toutes les informations de l'images
+function getLink()
+{
+    $sql = "SELECT * FROM pictures";
+
+    $db = dbConnect();
+    $getDataPictures = $db->prepare($sql);
+    $getDataPictures->execute();
+    $dataPictures = $getDataPictures->fetchAll(PDO::FETCH_ASSOC); 
+
+    foreach ($dataPictures as $dataPicture) { ?>
+        <div class="picturesGallery">
+            <img src="<?= $dataPicture['link'] ?>" alt="<?= $dataPicture['name'] ?>">
+        </div>
+    <?php }
+    
+}
+
 
 // CONNEXION à la base de donnée
 function dbConnect()
