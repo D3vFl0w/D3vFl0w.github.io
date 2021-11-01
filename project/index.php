@@ -90,7 +90,7 @@ try {
                 $newFileName = __DIR__ . "/public/img/uploaded/$newName.$extensionFile";
 
                 if (!move_uploaded_file($_FILES['uploadedPicture']['tmp_name'], $newFileName)) {
-                    throw new Exception("Le téléchargement à échoué");
+                    throw new Exception("Le téléchargement à échoué, mauvais chemin de dossier.");
                 }
                 chmod($newFileName, 0644);
                 header('Location : index.php?action=pictures');
