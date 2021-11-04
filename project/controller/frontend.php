@@ -70,10 +70,11 @@ function addPictures()
     }
     chmod($newFileName, 0644);
 
+    $pictureLink =$newFileName = "/D3vFl0w.github.io/project/controller/../public/img/uploaded/$newName.$extensionFile";
     $namePicture= $newName;
-    postLink($namePicture,$newFileName,$fileSize,$fileType);
+    postLink($namePicture,$pictureLink,$fileSize,$fileType);
 
-    header('Location : index.php?action=pictures');
+    header('Location:index.php?action=pictures');
 }
 
 // AFFICHER les images dans le dossier

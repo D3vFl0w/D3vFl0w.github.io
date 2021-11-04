@@ -30,14 +30,14 @@ function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, 
 }
 
 // ENREGISTRER le lien de l'image uploadée 
-function postLink($namePicture,$newFileName,$fileSize,$fileType)
+function postLink($namePicture,$pictureLink,$fileSize,$fileType)
 {
     $sql = "INSERT INTO pictures(name, link, size, type, date_creation) VALUES(:name, :link, :size, :type, (NOW()))";
 
     $db = dbConnect();
     $postPicture = $db->prepare($sql);
     $postPicture->bindValue(':name', $namePicture, PDO::PARAM_STR);
-    $postPicture->bindValue(':link', $newFileName, PDO::PARAM_STR);
+    $postPicture->bindValue(':link', $pictureLink, PDO::PARAM_STR);
     $postPicture->bindValue(':size', $fileSize, PDO::PARAM_INT);
     $postPicture->bindValue(':type', $fileType, PDO::PARAM_STR);
 
