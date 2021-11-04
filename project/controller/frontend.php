@@ -70,11 +70,70 @@ function addPictures()
     }
     chmod($newFileName, 0644);
 
-    $pictureLink =$newFileName = "/D3vFl0w.github.io/project/controller/../public/img/uploaded/$newName.$extensionFile";
-    $namePicture= $newName;
-    postLink($namePicture,$pictureLink,$fileSize,$fileType);
+    $pictureLink = $newFileName = "/D3vFl0w.github.io/project/controller/../public/img/uploaded/$newName.$extensionFile";
+    $namePicture = $newName;
+    postLink($namePicture, $pictureLink, $fileSize, $fileType);
 
     header('Location:index.php?action=pictures');
+
+    // ****** RESIZING IMG ***********
+    $pictureForResize = $newName;
+    $newPectureLink = "/D3vFl0w.github.io/project/controller/../public/img/resize/$pictureForResize";
+    $pictureSize = getimagesize($pictureForResize);
+
+    $width = $pictureSize[0];
+    $height = $pictureSize[1];
+
+    // Nouvelle image vierge en mémoire
+    $nouvelleImage = imagecreatetruecolor($width / 2, $height / 2);
+
+    switch ($pictureSize["mime"]) {
+        case 'image/png':
+            // Si c'est une image.png, on l'ouvre
+            $imageSource = imagecreatefrompng($pictureForResize);
+            break;
+        case 'image/jpeg':
+            $imageSource = imagecreatefromjpeg($pictureForResize);
+            break;
+        case 'image/gif':
+            $imageSource = imagecreatefromgif($pictureForResize);
+            break;
+        default:
+            throw new Exception("Format d'image incorrect");
+    }
+
+    // On copie toute l'image source dans l'image de destination en la réduisant
+    imagecopyresampled(
+        $nouvelleImage, //Image destination
+        $imageSource, // Image de départ
+        0, // Position en x du coin superieur gauche de l'image de destination
+        0, // Position en y du coin superieur gauche de l'image de destination
+        0, // Position en x du coin superieur gauche de l'image source
+        0, // Position en y du coin superieur gauche de l'image source
+        $width / 2, // Largeur dans l'image de destination
+        $height / 2, // La hauteur de l'image de destination
+        $width, // Largeur dans l'image source
+        $height, // La hauteur de l'image source
+    );
+
+    // Enregistrer la nouvelle image sur le serveur
+    switch ($pictureSize["mime"]) {
+        case 'image/png':
+            imagepng($nouvelleImage, $newPectureLink);
+            break;
+        case 'image/jpeg':
+            imagejpeg($nouvelleImage, $newPectureLink);
+            break;
+        case 'image/gif':
+            imagegif($nouvelleImage, $newPectureLink);
+            break;
+        default:
+            throw new Exception("Impossible d'enregistrer la nouvelle image dans le dossier");
+    }
+
+    // On detruit les images dans la mémoire temporaire
+    imagedestroy($imageSource);
+    imagedestroy($nouvelleImage);
 }
 
 // AFFICHER les images dans le dossier
