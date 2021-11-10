@@ -19,7 +19,8 @@ function homePage()
 // Traiter le formulaire
 function addForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
 {
-    $postForm = postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message);
+    $formManager = new FormManager();
+    $postForm = $formManager->postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message);
 
     if ($postForm === false) {
         throw new Exception('Impossible d\'enregistrer votre réponse !');
@@ -74,7 +75,8 @@ function addPictures()
 
     $pictureLink = $newFileName = "/D3vFl0w.github.io/project/controller/../public/img/uploaded/$newName.$extensionFile";
     $namePicture = $newName;
-    postLink($namePicture, $pictureLink, $fileSize, $fileType);
+    $picturesManager = new PicturesManager;
+    $picturesManager->postLink($namePicture, $pictureLink, $fileSize, $fileType);
 
     header('Location:index.php?action=pictures');
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once("/Manager.php");
+require_once("model/Manager.php");
 
  
 class PicturesManager extends Manager
