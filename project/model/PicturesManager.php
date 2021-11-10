@@ -10,7 +10,8 @@ class PicturesManager extends Manager
     {
         $sql = "INSERT INTO pictures(name, link, size, type, date_creation) VALUES(:name, :link, :size, :type, (NOW()))";
 
-        $db = dbConnect();
+        $manager = new Manager;
+        $db = $manager->dbConnect();
         $postPicture = $db->prepare($sql);
         $postPicture->bindValue(':name', $namePicture, PDO::PARAM_STR);
         $postPicture->bindValue(':link', $pictureLink, PDO::PARAM_STR);
@@ -27,7 +28,8 @@ class PicturesManager extends Manager
     {
         $sql = "SELECT * FROM pictures";
 
-        $db = dbConnect();
+        $manager = new Manager;
+        $db = $manager->dbConnect();
         $getDataPictures = $db->prepare($sql);
         $getDataPictures->execute();
         $dataPictures = $getDataPictures->fetchAll(PDO::FETCH_ASSOC);

@@ -8,8 +8,9 @@ class FormManager extends Manager
     public function postForm($name, $firstName, $tel, $email, $adults, $children, $answer, $diet, $allergy, $message)
     {
         $sql = "INSERT INTO invites(Nom,Prenom,Telephone,Mail,Adultes,Enfants,Participe,Règime,Allergies,Question) VALUES(:name,:firstName,:tel,:email,:adults,:children,:answer,:diet,:allergy,:message)";
-
-        $db = dbConnect();
+        
+        $manager = new Manager;
+        $db = $manager->dbConnect();
         $postForm = $db->prepare($sql);
         $postForm->bindParam(':name', $name, PDO::PARAM_STR);
         $postForm->bindParam(':firstName', $firstName, PDO::PARAM_STR);
