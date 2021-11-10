@@ -1,6 +1,8 @@
 <?php
 
-require('model/frontend.php');
+// Chargement des classes
+require_once('../model/FormManager.php');
+require_once('../model/PicturesManager.php');
 
 // AFFICHER le page de connexion
 function connectPage()
