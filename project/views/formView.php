@@ -1,3 +1,8 @@
+<?php
+require_once('../controller/frontend.php');
+sessionInit();
+?>
+
 <?php $title = 'Répondre à l\'invitation'; ?>
 
 <?php ob_start(); ?>

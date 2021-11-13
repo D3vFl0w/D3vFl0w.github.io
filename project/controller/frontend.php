@@ -9,6 +9,17 @@ function connectPage()
 {
 }
 
+// Initialisation d'une session
+function sessionInit()
+{
+    if (!session_id()) {
+        session_start();
+        session_regenerate_id();
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // AFFICHER la page d'acceuil
 function homePage()

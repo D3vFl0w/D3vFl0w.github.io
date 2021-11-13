@@ -12,10 +12,22 @@ Reste à faire en FRONTEND :
     - SECTION -> Compte à rebour JS ou PHP ??;
 
 Reste à faire en BACKEND :
-    3 - AFFICHER toutes les images(BUG!);
-    4 - SECURISER la page d'accueil;
-    5 - Refactoriser en POO;
-    6 - Vérifier s'il y a pas d'autres dossiers et/ou fichiers à créer;
+    - SECURISER la page d'accueil;
+    - AFFICHER toutes les images SI le visiteur est connécté(BUG!);
+    - Refactoriser en POO;
+    - Vérifier s'il y a pas d'autres dossiers et/ou fichiers à créer;
 
 NE JAMAIS STOCKER DES FICHIERS DANS UNE BDD, ça prend trop de place, ça ralenti le traitement
 STOCKER LES FICHIER DANS UN DOSSIER et on stock son NOM dans la BDD et pas son chemin
+
+****Faire les jointures des BDD et mettre à jours les requetes SQL****
+Jointures internes = INNER JOIN 'nom de la table' ON 'non de la seconde table'
+Jointures externes = LEFT/RIGHT JOIN ... ON ... (récupère toutes les infos de la table de gauche/droite)
+
+Double jointures : 
+SELECT u.full_name, c.comment, r.title
+FROM users u
+JOIN comments c
+	ON u.user_id = c.user_id
+JOIN recipes r
+	ON c.recipe_id = r.recipe_id

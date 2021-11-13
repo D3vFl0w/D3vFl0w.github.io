@@ -1,3 +1,8 @@
+<?php
+require_once('../controller/frontend.php');
+sessionInit();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,7 +33,7 @@
 
             <ul class="navRight">
                 <li><a href="index.php?action=form">Je réponds à l'invitation</a></li>
-                <li><a href="index.php?action=pictures">Photos</a></li>
+                <!-- <li><a href="index.php?action=pictures">Photos</a></li> -->
                 <!--Ajouter la fonctionnalité aux visiteurs d'ajouter et voir les photos du mariage sur une autre page-->
             </ul>
 

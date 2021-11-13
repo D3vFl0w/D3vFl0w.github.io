@@ -1,3 +1,9 @@
+<?php
+require_once('../controller/frontend.php');
+require_once('../model/PicturesManager.php');
+sessionInit();
+?>
+
 <?php $title = 'Photos'; ?>
 
 <?php ob_start(); ?>
@@ -12,7 +18,8 @@
 
 <!-- Afficher toutes les images -->
 <?php
-getLink();
+$picturesGalery = new PicturesManager;
+$getLink = $picturesGalery->getLink;
 ?>
 
 <?php $content = ob_get_clean(); ?>

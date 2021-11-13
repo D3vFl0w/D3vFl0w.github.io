@@ -1,5 +1,6 @@
 <?php
 require('controller/frontend.php');
+sessionInit();
 
 try {
     if (isset($_GET['action'])) {
