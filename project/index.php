@@ -87,8 +87,11 @@ try {
             echo 'Erreur : aucunes informations rentrés';
         }
     } else {
-        homePage();
+        connectPage();
     }
 } catch (Exception $e) {
     echo 'Erreur : ' . $e->getMessage();
 }
+
+
+// Ajouter dans chaque if et elseif la VERIFICATION de la précense d'une session : Si $_SESSION présent afficher les pages demandées SINON afficher la page connectPage()

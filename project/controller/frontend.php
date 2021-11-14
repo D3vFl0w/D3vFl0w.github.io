@@ -3,14 +3,16 @@
 // Chargement des classes
 require_once('../model/FormManager.php');
 require_once('../model/PicturesManager.php');
+require_once('../model/ConnectingVisitors.php');
 
 // AFFICHER le page de connexion
 function connectPage()
 {
+    require('views/connect.php');
 }
 
 // Initialisation d'une session
-function sessionInit()
+function sessionInit() : bool
 {
     if (!session_id()) {
         session_start();
@@ -19,6 +21,53 @@ function sessionInit()
     } else {
         return false;
     }
+}
+
+// Detruire la session
+function sessionDestroy() : void
+{
+    session_unset();
+    session_destroy();
+}
+
+// Vérifier si le visiteur est connécté
+function isLogged() : bool
+{
+    return true; // A completer comme isAdmin c'est en cours.
+}
+
+// CONNECTER le visiteur
+function connected()
+{
+    if (!empty($_POST)) {
+        if (isset($_POST['mail'], $_POST['pass']) && !empty($_POST['mail']) && !empty($_POST['pass'])) {
+            if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+                throw new Exception('L\'adresse email est incorrecte');   
+            }
+            $connectEmail = strip_tags($_POST['mail']);
+            $connectPass = strip_tags($_POST['pass']);
+            $connectHashPass = password_hash($connectPass, PASSWORD_ARGON2ID);
+
+            $connectingVisitors = new Connecting;
+            $connectingVisitors->connectingVisitor($connectPass, $connectHashPass, $connectEmail);
+        } else {
+            throw new Exception('La connexion a échoué');
+        }
+
+        sessionInit();
+        $_SESSION['user'] = [
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'admin' => $user['admin']
+        ];
+        header('Location:index.php?action=index');
+    }
+}
+
+// Tester si le visiteur est un administrateur
+function isAdmin() : bool
+{
+    return true; // en cours de test, à terminer.
 }
 
 // AFFICHER la page d'acceuil

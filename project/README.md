@@ -31,3 +31,14 @@ JOIN comments c
 	ON u.user_id = c.user_id
 JOIN recipes r
 	ON c.recipe_id = r.recipe_id
+
+|///////////////////////////////|
+|       AUTHENTIFICATION        |
+|///////////////////////////////|
+
+    - Formulaire pour la connexion (identifiant + Mot de passe)
+    - Formulaire pour changer son mot de passe
+    - Formulaire pour mot de passe perdu
+    - Formulaire pour changer ses données
+
+VIDEO 'nouvelle techno' je suis à 59:10
