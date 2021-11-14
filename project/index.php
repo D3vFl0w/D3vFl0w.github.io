@@ -6,6 +6,14 @@ try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'index') {
             homePage();
+        } elseif ($_GET['action'] == 'connecting') {
+            if (!empty($_POST)) {
+                if (isset($_POST['user_name'], $_POST['pass']) && !empty($_POST['user_name']) && !empty($_POST['pass'])) {
+                    connecting();
+                }
+            } else {
+                throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
+            }
         } elseif ($_GET['action'] == 'form') {
             formPage();
         } elseif ($_GET['action'] == 'addForm') {

@@ -41,4 +41,4 @@ JOIN recipes r
     - Formulaire pour mot de passe perdu
     - Formulaire pour changer ses données
 
-VIDEO 'nouvelle techno' je suis à 59:10
+VIDEO 'nouvelle techno' je suis à 

@@ -1,18 +1,18 @@
 <?php
 
 // Chargement des classes
-require_once('../model/FormManager.php');
-require_once('../model/PicturesManager.php');
-require_once('../model/ConnectingVisitors.php');
+require_once('/wamp64/www/D3vFl0w.github.io/project/model/FormManager.php');
+require_once('/wamp64/www/D3vFl0w.github.io/project/model/PicturesManager.php');
+require_once('/wamp64/www/D3vFl0w.github.io/project/model/ConnectingVisitors.php');
 
 // AFFICHER le page de connexion
 function connectPage()
 {
-    require('views/connect.php');
+    require('views/connectPage.php');
 }
 
 // Initialisation d'une session
-function sessionInit() : bool
+function sessionInit(): bool
 {
     if (!session_id()) {
         session_start();
@@ -24,48 +24,45 @@ function sessionInit() : bool
 }
 
 // Detruire la session
-function sessionDestroy() : void
+function sessionDestroy(): void
 {
-    session_unset();
-    session_destroy();
+    unset($_SESSION['user']);
+    header('Location:index.php');
 }
 
 // Vérifier si le visiteur est connécté
-function isLogged() : bool
+function isLogged(): bool
 {
     return true; // A completer comme isAdmin c'est en cours.
 }
 
 // CONNECTER le visiteur
-function connected()
+function connecting()
 {
-    if (!empty($_POST)) {
-        if (isset($_POST['mail'], $_POST['pass']) && !empty($_POST['mail']) && !empty($_POST['pass'])) {
-            if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-                throw new Exception('L\'adresse email est incorrecte');   
-            }
-            $connectEmail = strip_tags($_POST['mail']);
-            $connectPass = strip_tags($_POST['pass']);
-            $connectHashPass = password_hash($connectPass, PASSWORD_ARGON2ID);
+    sessionInit();
+    $connectName = securing($_POST['user_name']);
+    $connectPass = securing($_POST['pass']);
 
-            $connectingVisitors = new Connecting;
-            $connectingVisitors->connectingVisitor($connectPass, $connectHashPass, $connectEmail);
-        } else {
-            throw new Exception('La connexion a échoué');
-        }
-
-        sessionInit();
-        $_SESSION['user'] = [
-            'id' => $user['id'],
-            'name' => $user['name'],
-            'admin' => $user['admin']
-        ];
-        header('Location:index.php?action=index');
+    if (!securing($_POST['user_name'], $_POST['pass'])) {
+        throw new Exception('Impossible de sécuriser les données');
     }
+
+    $connectHashPass = password_hash($connectPass, PASSWORD_ARGON2ID);
+
+    $connectingVisitors = new Connecting;
+    $connectingVisitors->connectingVisitor($connectPass, $connectHashPass, $connectName);
+
+    // $_SESSION['user'] = [
+    //     'id' => $user['id'],
+    //     'name' => $user['name'],
+    //     'admin' => $user['admin']
+    // ];
+
+    header('Location:index.php?action=index');
 }
 
 // Tester si le visiteur est un administrateur
-function isAdmin() : bool
+function isAdmin(): bool
 {
     return true; // en cours de test, à terminer.
 }
