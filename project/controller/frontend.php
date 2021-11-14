@@ -42,7 +42,7 @@ function connecting()
     $connectName = securing($_POST['user_name']);
     $connectPass = securing($_POST['user_pass']);
 
-    if (!securing($connectName) && !securing($connectPass)) {
+    if (!securing($_POST['user_name'], $_POST['pass'])) {
         throw new Exception('Impossible de sécuriser les données');
     }
 
@@ -56,12 +56,8 @@ function connecting()
     //     'name' => $user['name'],
     //     'admin' => $user['admin']
     // ];
-    
-    if ($connectingVisitors === true) {
-        header('Location:index.php?action=index');
-    } else {
-        header('Location:index.php');
-    }
+
+    header('Location:index.php?action=index');
 }
 
 // Tester si le visiteur est un administrateur
