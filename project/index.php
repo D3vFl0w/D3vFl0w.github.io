@@ -7,9 +7,12 @@ try {
         if ($_GET['action'] == 'index') {
             homePage();
         } elseif ($_GET['action'] == 'connecting') {
+            connecting();
             if (!empty($_POST)) {
                 if (isset($_POST['user_name'], $_POST['user_pass']) && !empty($_POST['user_name']) && !empty($_POST['user_pass'])) {
                     connecting();
+                } else {
+                    throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
                 }
             } else {
                 throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');

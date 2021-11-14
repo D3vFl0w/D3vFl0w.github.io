@@ -1,7 +1,6 @@
 <?php
 require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
 sessionInit();
-$title = 'Se connecter';
 ?>
 
 <!-- FORMULAIRE CONNEXION -->
@@ -12,7 +11,7 @@ $title = 'Se connecter';
     </div>
     <div>
         <label for="pass">Code secret</label>
-        <input type="password" name="pass" id="pass">
+        <input type="password" name="user_pass" id="pass">
     </div>
     <div>
         <input type="submit" value="Se connecter">

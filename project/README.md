@@ -17,8 +17,18 @@ Reste à faire en BACKEND :
     - Refactoriser en POO;
     - Vérifier s'il y a pas d'autres dossiers et/ou fichiers à créer;
 
-NE JAMAIS STOCKER DES FICHIERS DANS UNE BDD, ça prend trop de place, ça ralenti le traitement
-STOCKER LES FICHIER DANS UN DOSSIER et on stock son NOM dans la BDD et pas son chemin
+
+|///////////////////////////////|
+|       AUTHENTIFICATION        |
+|///////////////////////////////|
+
+    - La vérification du formulaire ne marche pas !
+    - Faire un formulaire pour changer son mot de passe
+    - Faire un formulaire pour mot de passe perdu
+
+VIDEO 'nouvelle techno' je suis à 
+
+*** MESSAGE D'ERREUR A METTRE SUR TOUTES LES EXCEPTIONS DE LA CONNEXION : L\'utilisatreur et/ou le mot de passe est incorrect. ***
 
 ****Faire les jointures des BDD et mettre à jours les requetes SQL****
 Jointures internes = INNER JOIN 'nom de la table' ON 'non de la seconde table'
@@ -31,16 +41,3 @@ JOIN comments c
 	ON u.user_id = c.user_id
 JOIN recipes r
 	ON c.recipe_id = r.recipe_id
-
-|///////////////////////////////|
-|       AUTHENTIFICATION        |
-|///////////////////////////////|
-
-
-    - Formulaire pour changer son mot de passe
-    - Formulaire pour mot de passe perdu
-    - Formulaire pour changer ses données
-
-VIDEO 'nouvelle techno' je suis à 
-
-*** MESSAGE D'ERREUR A METTRE SUR TOUTES LES EXCEPTIONS DE LA CONNEXION : L\'utilisatreur et/ou le mot de passe est incorrect. ***

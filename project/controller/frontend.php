@@ -38,7 +38,6 @@ function isLogged(): bool
 // CONNECTER le visiteur
 function connecting()
 {
-    sessionInit();
     $connectName = securing($_POST['user_name']);
     $connectPass = securing($_POST['user_pass']);
 
