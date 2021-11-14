@@ -6,7 +6,7 @@ class Connecting extends Manager
 {
     public function connectingVisitor($connectPass, $connectHashPass, $connectName)
     {
-        $sql = "SELECT * FROM users WHERE 'user_name' = :name ";
+        $sql = "SELECT * FROM users WHERE 'user_name' = :user_name 'user_pass' = :user_pass ";
 
         $manager = new Manager;
         $db = $manager->dbConnect();
@@ -17,12 +17,12 @@ class Connecting extends Manager
 
         $user = $connectingVisitor->fetch();
         if (!$user) {
-            throw new Exception('L\'utilisatreur et/ou le mot de passe est incorrect.');
+            throw new Exception('Les données ne sont pas récupérées de la base de donnée');
         }
         if (!password_verify($connectPass, $connectHashPass)) {
-            throw new Exception('L\'utilisatreur et/ou le mot de passe est incorrect.');
+            throw new Exception('password_verify impossible, les mot de passe sont différents');
         }
-        
+
         return $user;
     }
 }

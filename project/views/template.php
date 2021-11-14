@@ -1,5 +1,5 @@
 <?php
-require_once('../controller/frontend.php');
+require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
 sessionInit();
 ?>
 
@@ -28,7 +28,7 @@ sessionInit();
             </ul>
 
             <div class="navImgContainer">
-                <a class="navImg" href="index.php"><img src="../../public/img/logo.png" alt="logo du site" height="90px"></a>
+                <a class="navImg" href="index.php?action=index"><img src="../../public/img/logo.png" alt="logo du site" height="90px"></a>
             </div>
 
             <ul class="navRight">

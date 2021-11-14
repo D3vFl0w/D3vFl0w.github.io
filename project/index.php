@@ -1,5 +1,5 @@
 <?php
-require('controller/frontend.php');
+require_once('controller/frontend.php');
 sessionInit();
 
 try {
@@ -8,7 +8,7 @@ try {
             homePage();
         } elseif ($_GET['action'] == 'connecting') {
             if (!empty($_POST)) {
-                if (isset($_POST['user_name'], $_POST['pass']) && !empty($_POST['user_name']) && !empty($_POST['pass'])) {
+                if (isset($_POST['user_name'], $_POST['user_pass']) && !empty($_POST['user_name']) && !empty($_POST['user_pass'])) {
                     connecting();
                 }
             } else {

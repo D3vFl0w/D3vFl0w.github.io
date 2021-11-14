@@ -16,7 +16,6 @@ function sessionInit(): bool
 {
     if (!session_id()) {
         session_start();
-        session_regenerate_id();
         return true;
     } else {
         return false;
@@ -41,9 +40,9 @@ function connecting()
 {
     sessionInit();
     $connectName = securing($_POST['user_name']);
-    $connectPass = securing($_POST['pass']);
+    $connectPass = securing($_POST['user_pass']);
 
-    if (!securing($_POST['user_name'], $_POST['pass'])) {
+    if (!securing($connectName) && !securing($connectPass)) {
         throw new Exception('Impossible de sécuriser les données');
     }
 
@@ -57,8 +56,12 @@ function connecting()
     //     'name' => $user['name'],
     //     'admin' => $user['admin']
     // ];
-
-    header('Location:index.php?action=index');
+    
+    if ($connectingVisitors === true) {
+        header('Location:index.php?action=index');
+    } else {
+        header('Location:index.php');
+    }
 }
 
 // Tester si le visiteur est un administrateur

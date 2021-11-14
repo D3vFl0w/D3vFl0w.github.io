@@ -36,9 +36,11 @@ JOIN recipes r
 |       AUTHENTIFICATION        |
 |///////////////////////////////|
 
-    - Formulaire pour la connexion (identifiant + Mot de passe)
+
     - Formulaire pour changer son mot de passe
     - Formulaire pour mot de passe perdu
     - Formulaire pour changer ses données
 
 VIDEO 'nouvelle techno' je suis à 
+
+*** MESSAGE D'ERREUR A METTRE SUR TOUTES LES EXCEPTIONS DE LA CONNEXION : L\'utilisatreur et/ou le mot de passe est incorrect. ***
