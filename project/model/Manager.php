@@ -10,7 +10,7 @@ class Manager
         define("DBNAME", "mariage");
 
         $dns = "mysql:dbname=" . DBNAME . ";host=" . DBHOST;
-        $db = new PDO($dns, DBUSER, DBPASS);
+        $db = new PDO($dns, DBUSER, DBPASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         return $db;
     }
 }

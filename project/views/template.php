@@ -1,6 +1,6 @@
 <?php
-require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
 sessionInit();
+require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
 ?>
 
 <!DOCTYPE html>

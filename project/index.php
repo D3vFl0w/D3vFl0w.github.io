@@ -1,16 +1,17 @@
 <?php
 require_once('controller/frontend.php');
-sessionInit();
 
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'index') {
             homePage();
         } elseif ($_GET['action'] == 'connecting') {
-            connecting();
             if (!empty($_POST)) {
                 if (isset($_POST['user_name'], $_POST['user_pass']) && !empty($_POST['user_name']) && !empty($_POST['user_pass'])) {
-                    connecting();
+                    $connectName = securing($_POST['user_name']);
+                    $connectPass = securing($_POST['user_pass']);
+                    $connectHashPass = password_hash($connectPass, PASSWORD_ARGON2ID);
+                    connecting($connectName,$connectPass,$connectHashPass);
                 } else {
                     throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
                 }

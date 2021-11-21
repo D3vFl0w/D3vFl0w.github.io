@@ -36,27 +36,21 @@ function isLogged(): bool
 }
 
 // CONNECTER le visiteur
-function connecting()
+function connecting($connectName,$connectPass,$connectHashPass)
 {
-    $connectName = securing($_POST['user_name']);
-    $connectPass = securing($_POST['user_pass']);
-
-    if (!securing($_POST['user_name'], $_POST['pass'])) {
-        throw new Exception('Impossible de sécuriser les données');
-    }
-
-    $connectHashPass = password_hash($connectPass, PASSWORD_ARGON2ID);
-
     $connectingVisitors = new Connecting;
     $connectingVisitors->connectingVisitor($connectPass, $connectHashPass, $connectName);
 
+    if ($connectingVisitors === false) {
+        throw new Exception("Impossible de se connecter le fonction connectingVisitor n'a pas fonctionné");
+    } else {
+        header('Location:index.php?action=index');
+    }
     // $_SESSION['user'] = [
     //     'id' => $user['id'],
     //     'name' => $user['name'],
     //     'admin' => $user['admin']
     // ];
-
-    header('Location:index.php?action=index');
 }
 
 // Tester si le visiteur est un administrateur

@@ -23,10 +23,10 @@ Reste à faire en BACKEND :
 |///////////////////////////////|
 
     - La vérification du formulaire ne marche pas !
+    - Bouton 'Déconnexion'
     - Faire un formulaire pour changer son mot de passe
     - Faire un formulaire pour mot de passe perdu
 
-VIDEO 'nouvelle techno' je suis à 
 
 *** MESSAGE D'ERREUR A METTRE SUR TOUTES LES EXCEPTIONS DE LA CONNEXION : L\'utilisatreur et/ou le mot de passe est incorrect. ***
 
@@ -41,3 +41,9 @@ JOIN comments c
 	ON u.user_id = c.user_id
 JOIN recipes r
 	ON c.recipe_id = r.recipe_id
+
+
+
+Photos de profil pro
+Vetements
+Auto entrepreneur
