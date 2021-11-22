@@ -3,7 +3,7 @@ require_once('controller/frontend.php');
 
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'index') {
+        if ($_GET['action'] == 'home') {
             homePage();
         } elseif ($_GET['action'] == 'connecting') {
             if (!empty($_POST)) {
@@ -11,13 +11,15 @@ try {
                     $connectName = securing($_POST['user_name']);
                     $connectPass = securing($_POST['user_pass']);
                     $connectHashPass = password_hash($connectPass, PASSWORD_ARGON2ID);
-                    connecting($connectName,$connectPass,$connectHashPass);
+                    connecting($connectName, $connectPass, $connectHashPass);
                 } else {
                     throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
                 }
             } else {
                 throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
             }
+        } elseif ($_GET['action'] == 'unset') {
+            sessionUnset();
         } elseif ($_GET['action'] == 'form') {
             formPage();
         } elseif ($_GET['action'] == 'addForm') {
@@ -98,7 +100,8 @@ try {
         } else {
             echo 'Erreur : aucunes informations rentrés';
         }
-    } else {
+    }
+    if (!isset($_SESSION['user'])) {
         connectPage();
     }
 } catch (Exception $e) {

@@ -16,24 +16,24 @@ class Connecting extends Manager
         $connectingVisitor->execute();
         $user = $connectingVisitor->fetchAll(PDO::FETCH_ASSOC);
 
-        echo '<pre>';
-        print_r($user);
-        echo '</pre>';
-
         if (!$user) {
-            throw new Exception('Utilisateur inéxistant !');
+            throw new Exception('L\'utilisatreur et/ou le mot de passe est incorrect.');
         }
         if (!password_verify($connectPass, $connectHashPass)) {
             throw new Exception('password_verify impossible, les mots de passe sont différents');
         }
-
-        if (in_array($connectName,$user[0])) {
-            // Si l'utilisateur éxiste, créer une séssion pour que l'utilisateur reste connecté dans toutes les pages.
-        } else {
+        if (!in_array($connectName, $user[0])) {
             throw new Exception('Je ne trouve rien :(');
         }
-        throw new Exception("Error Processing Request", 1);
-        
-        return $user;
+
+        session_start();
+        $_SESSION['user'] = [
+            'id' => $user[0]['id'],
+            'user_name' => $user[0]['user_name'],
+            'role' => $user[0]['user_admin']
+        ];
+        if (!isset($_SESSION['user']['user_name'])) {
+            header('Location:index.php');
+        }
     }
 }

@@ -12,19 +12,19 @@ Reste à faire en FRONTEND :
     - SECTION -> Compte à rebour JS ou PHP ??;
 
 Reste à faire en BACKEND :
-    - SECURISER la page d'accueil;
     - AFFICHER toutes les images SI le visiteur est connécté(BUG!);
     - Refactoriser en POO;
     - Vérifier s'il y a pas d'autres dossiers et/ou fichiers à créer;
+    - Se faire une page administrateur pour voir les réponses des invites et les graphiques
 
 
 |///////////////////////////////|
 |       AUTHENTIFICATION        |
 |///////////////////////////////|
 
-    - La vérification du formulaire ne marche pas !
+    - Stocker les données de l'utilisateur de page en page pour rester connecté
     - Bouton 'Déconnexion'
-    - Faire un formulaire pour changer son mot de passe
+    - Faire une page profil ou un overlay pour modifier ses données (idantifiant, mdp, photo de profil,...)
     - Faire un formulaire pour mot de passe perdu
 
 

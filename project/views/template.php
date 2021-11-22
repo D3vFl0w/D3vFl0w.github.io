@@ -1,6 +1,6 @@
 <?php
-sessionInit();
 require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
+sessionVerify()
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
         <nav>
 
             <ul class="navLeft">
-                <li><a href="index.php?action=index#history">Notre histoire</a></li>
+                <li><a href="index.php?action=home#history">Notre histoire</a></li>
                 <li><a href="index.php?action=accommodation">Hébergements</a></li>
             </ul>
 
@@ -33,6 +33,9 @@ require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
 
             <ul class="navRight">
                 <li><a href="index.php?action=form">Je réponds à l'invitation</a></li>
+                <?php if(isset($_SESSION['user'])): ?>
+                    <li><a href="index.php?action=unset">Déconnexion</a></li>
+                <?php endif ?>
                 <!-- <li><a href="index.php?action=pictures">Photos</a></li> -->
                 <!--Ajouter la fonctionnalité aux visiteurs d'ajouter et voir les photos du mariage sur une autre page-->
             </ul>

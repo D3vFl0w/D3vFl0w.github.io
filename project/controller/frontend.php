@@ -8,49 +8,42 @@ require_once('/wamp64/www/D3vFl0w.github.io/project/model/ConnectingVisitors.php
 // AFFICHER le page de connexion
 function connectPage()
 {
-    require('views/connectPage.php');
+    require('views/login.php');
 }
 
-// Initialisation d'une session
-function sessionInit(): bool
+// Vérifier s'il existe une session ouverte
+function sessionVerify()
 {
-    if (!session_id()) {
-        session_start();
-        return true;
-    } else {
-        return false;
+    session_start();
+    if (!isset($_SESSION['user'])) {
+        header('Location:index.php');
+        exit;
     }
 }
 
+
 // Detruire la session
-function sessionDestroy(): void
+function sessionUnset()
 {
+    session_start();
     unset($_SESSION['user']);
     header('Location:index.php');
 }
 
-// Vérifier si le visiteur est connécté
-function isLogged(): bool
-{
-    return true; // A completer comme isAdmin c'est en cours.
-}
-
 // CONNECTER le visiteur
-function connecting($connectName,$connectPass,$connectHashPass)
+function connecting($connectName, $connectPass, $connectHashPass)
 {
     $connectingVisitors = new Connecting;
     $connectingVisitors->connectingVisitor($connectPass, $connectHashPass, $connectName);
 
     if ($connectingVisitors === false) {
         throw new Exception("Impossible de se connecter le fonction connectingVisitor n'a pas fonctionné");
+    } 
+    if (!isset($_SESSION['user'])) {
+        header('Location:index.php');
     } else {
-        header('Location:index.php?action=index');
+        header('Location:index.php?action=home');
     }
-    // $_SESSION['user'] = [
-    //     'id' => $user['id'],
-    //     'name' => $user['name'],
-    //     'admin' => $user['admin']
-    // ];
 }
 
 // Tester si le visiteur est un administrateur
@@ -74,7 +67,7 @@ function addForm($name, $firstName, $tel, $email, $adults, $children, $answer, $
     if ($postForm === false) {
         throw new Exception('Impossible d\'enregistrer votre réponse !');
     } else {
-        header('Location:index.php?action=index');
+        header('Location:index.php?action=home');
     }
 }
 
@@ -198,7 +191,6 @@ function accommodationPage()
 {
     require('views/accommodationsView.php');
 }
-
 
 // Fonction pour sécuriser les données envoyés par l'utilisateur
 function securing($formData)
