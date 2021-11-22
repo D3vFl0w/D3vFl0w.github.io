@@ -46,6 +46,18 @@ function connecting($connectName, $connectPass, $connectHashPass)
     }
 }
 
+// Changer le mot de passe
+function passChange()
+{
+    
+}
+
+// Mot de passe perdu
+function passForget()
+{
+
+}
+
 // Tester si le visiteur est un administrateur
 function isAdmin(): bool
 {

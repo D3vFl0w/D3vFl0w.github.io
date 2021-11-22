@@ -18,6 +18,8 @@ try {
             } else {
                 throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
             }
+        } elseif ($_GET['action'] == 'passForget') {
+            passForget();
         } elseif ($_GET['action'] == 'unset') {
             sessionUnset();
         } elseif ($_GET['action'] == 'form') {
@@ -103,6 +105,8 @@ try {
     }
     if (!isset($_SESSION['user'])) {
         connectPage();
+    } else {
+        homePage();
     }
 } catch (Exception $e) {
     echo 'Erreur : ' . $e->getMessage();

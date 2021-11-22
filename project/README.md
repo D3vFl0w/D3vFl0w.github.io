@@ -12,20 +12,13 @@ Reste à faire en FRONTEND :
     - SECTION -> Compte à rebour JS ou PHP ??;
 
 Reste à faire en BACKEND :
+    - Faire un formulaire pour mot de passe perdu dans le formulaire de connexion avec un envoi de mot de passe temporaire par email
     - AFFICHER toutes les images SI le visiteur est connécté(BUG!);
+    - Faire une page profil ou un overlay pour modifier ses données (idantifiant, mdp, photo de profil,...)
+    - Faire un systeme de j'aime pour les photos comme sur facebook
+    - Se faire une page administrateur pour voir les réponses des invites et les graphiques
     - Refactoriser en POO;
     - Vérifier s'il y a pas d'autres dossiers et/ou fichiers à créer;
-    - Se faire une page administrateur pour voir les réponses des invites et les graphiques
-
-
-|///////////////////////////////|
-|       AUTHENTIFICATION        |
-|///////////////////////////////|
-
-    - Stocker les données de l'utilisateur de page en page pour rester connecté
-    - Bouton 'Déconnexion'
-    - Faire une page profil ou un overlay pour modifier ses données (idantifiant, mdp, photo de profil,...)
-    - Faire un formulaire pour mot de passe perdu
 
 
 *** MESSAGE D'ERREUR A METTRE SUR TOUTES LES EXCEPTIONS DE LA CONNEXION : L\'utilisatreur et/ou le mot de passe est incorrect. ***
@@ -41,9 +34,3 @@ JOIN comments c
 	ON u.user_id = c.user_id
 JOIN recipes r
 	ON c.recipe_id = r.recipe_id
-
-
-
-Photos de profil pro
-Vetements
-Auto entrepreneur

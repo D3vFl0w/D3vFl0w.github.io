@@ -33,7 +33,7 @@ sessionVerify()
 
             <ul class="navRight">
                 <li><a href="index.php?action=form">Je réponds à l'invitation</a></li>
-                <?php if(isset($_SESSION['user'])): ?>
+                <?php if (isset($_SESSION['user'])) : ?>
                     <li><a href="index.php?action=unset">Déconnexion</a></li>
                 <?php endif ?>
                 <!-- <li><a href="index.php?action=pictures">Photos</a></li> -->
