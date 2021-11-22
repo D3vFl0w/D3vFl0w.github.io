@@ -105,8 +105,6 @@ try {
     }
     if (!isset($_SESSION['user'])) {
         connectPage();
-    } else {
-        homePage();
     }
 } catch (Exception $e) {
     echo 'Erreur : ' . $e->getMessage();
