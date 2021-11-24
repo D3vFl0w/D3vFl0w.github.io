@@ -38,24 +38,27 @@ function connecting($connectName, $connectPass)
 
     if ($connectingVisitors === false) {
         throw new Exception("Impossible de se connecter le fonction connectingVisitor n'a pas fonctionné");
-    } 
-    if (!isset($_SESSION['user'])) {
-        header('Location:index.php');
     } else {
-        header('Location:index.php?action=home');
+        if (!isset($_SESSION['user'])) {
+            header('Location:index.php');
+        } else {
+            header('Location:index.php?action=home');
+        }
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
     }
 }
 
 // Changer le mot de passe
 function passChange()
 {
-    
 }
 
 // Mot de passe perdu
 function passForget()
 {
-
+    
 }
 
 // Tester si le visiteur est un administrateur

@@ -17,7 +17,7 @@ try {
             } else {
                 throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
             }
-        } elseif ($_GET['action'] == 'passForget') {
+        } elseif ($_GET['action'] == 'forgot') {
             passForget();
         } elseif ($_GET['action'] == 'unset') {
             sessionUnset();
@@ -101,8 +101,7 @@ try {
         } else {
             echo 'Erreur : aucunes informations rentrés';
         }
-    }
-    if (!isset($_SESSION['user'])) {
+    } else {
         connectPage();
     }
 } catch (Exception $e) {
