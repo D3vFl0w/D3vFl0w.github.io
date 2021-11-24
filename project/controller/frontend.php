@@ -31,10 +31,10 @@ function sessionUnset()
 }
 
 // CONNECTER le visiteur
-function connecting($connectName, $connectPass, $connectHashPass)
+function connecting($connectName, $connectPass)
 {
     $connectingVisitors = new Connecting;
-    $connectingVisitors->connectingVisitor($connectPass, $connectHashPass, $connectName);
+    $connectingVisitors->connectingVisitor($connectPass, $connectName);
 
     if ($connectingVisitors === false) {
         throw new Exception("Impossible de se connecter le fonction connectingVisitor n'a pas fonctionné");

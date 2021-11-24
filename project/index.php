@@ -10,8 +10,7 @@ try {
                 if (isset($_POST['user_name'], $_POST['user_pass']) && !empty($_POST['user_name']) && !empty($_POST['user_pass'])) {
                     $connectName = securing($_POST['user_name']);
                     $connectPass = securing($_POST['user_pass']);
-                    $connectHashPass = password_hash($connectPass, PASSWORD_ARGON2ID);
-                    connecting($connectName, $connectPass, $connectHashPass);
+                    connecting($connectName, $connectPass);
                 } else {
                     throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
                 }
