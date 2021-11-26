@@ -17,8 +17,40 @@ try {
             } else {
                 throw new Exception('Merci d\'indiquer un identifiant et/ou un mot de passe correct');
             }
-        } elseif ($_GET['action'] == 'forgot') {
-            passForget();
+        } elseif ($_GET['action'] == 'forgotView') {
+            passForgetView();
+        } elseif ($_GET['action'] == 'forgotPost') {
+            if (isset($_POST['user_mail']) && !empty($_POST['user_mail'])) {
+                $userEmail = securing($_POST['user_mail']);
+                if (filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
+                    genererUnToken($userEmail);
+                } else {
+                    throw new Exception("L'adresse e-mail est invalide", 1);
+                }
+            } else {
+                throw new Exception("Merci de renseigner votre adresse email", 1);
+            }
+        } elseif ($_GET['action'] == 'token') {
+            if (isset($_GET['token']) && $_GET['token'] != '') {
+                $tokenUrl = $_GET['token'];
+                comparerLesToken($tokenUrl);
+            } else {
+                throw new Exception("L'adresse URL est incorrecte", 1);
+            }
+        } elseif ($_GET['action'] == 'addNewPass') {
+            if (isset($_POST['user_newPassword'], $_POST['user_newPasswordConf']) && !empty($_POST['user_newPassword']) && !empty($_POST['user_newPasswordConf'])) {
+                $userEmail = securing($_POST['user_email']);
+                $newPassword = securing($_POST['user_newPassword']);
+                $newPasswordConf = securing($_POST['user_newPasswordConf']);
+
+                if ($newPassword === $newPasswordConf) {
+                    changerDeMotDePasse($newPassword,$userEmail);
+                } else {
+                    throw new Exception("Les mots de passe ne sont pas identiques, merci de renseigner le même mot de passe", 1);
+                }
+            } else {
+                throw new Exception("L'adresse e-mail et/ou les mots de passe sont incorrectes", 1);
+            }
         } elseif ($_GET['action'] == 'unset') {
             sessionUnset();
         } elseif ($_GET['action'] == 'form') {
@@ -35,7 +67,7 @@ try {
                         $_POST['children'],
                         $_POST['answer'],
                         $_POST['diet'],
-                        $_POST['allergy'],
+                        $_POST['allergy']
                     )
                     && !empty($_POST['name'])
                     && !empty($_POST['firstName'])

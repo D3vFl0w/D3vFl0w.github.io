@@ -11,7 +11,7 @@ require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
     <div>
         <label for="pass">Mot de passe </label>
         <input type="password" name="user_pass" id="pass">
-        <a href="index.php?action=passForget">Mot de passe oublié</a>
+        <a href="index.php?action=forgotView">Mot de passe oublié ?</a>
     </div>
     <div>
         <input type="submit" value="Se connecter">

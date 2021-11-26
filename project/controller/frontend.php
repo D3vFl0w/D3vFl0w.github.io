@@ -4,11 +4,12 @@
 require_once('/wamp64/www/D3vFl0w.github.io/project/model/FormManager.php');
 require_once('/wamp64/www/D3vFl0w.github.io/project/model/PicturesManager.php');
 require_once('/wamp64/www/D3vFl0w.github.io/project/model/ConnectingVisitors.php');
+require_once('/wamp64/www/D3vFl0w.github.io/project/model/ForgotPassword.php');
 
 // AFFICHER le page de connexion
 function connectPage()
 {
-    require('views/login.php');
+    require('views/loginView.php');
 }
 
 // Vérifier s'il existe une session ouverte
@@ -44,21 +45,41 @@ function connecting($connectName, $connectPass)
         } else {
             header('Location:index.php?action=home');
         }
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
     }
 }
 
-// Changer le mot de passe
-function passChange()
+// Afficher le formulaire Mot de passe perdu
+function passForgetView()
 {
+    require('views/passForgetView.php');
 }
 
-// Mot de passe perdu
-function passForget()
+// Envoyer un email avec un token aléatoire
+function genererUnToken($userEmail)
 {
-    
+    $reqMail = new ForgotPassword;
+    $reqMail->controlerEmailEtGenererUnToken($userEmail);
+
+}
+
+//Controler le token envoyé
+function comparerLesToken($tokenUrl)
+{
+    $reqTokenTmp = new ForgotPassword;
+    $reqTokenTmp->verificationToken($tokenUrl);
+}
+
+// Afficher le formulaire pour Changer le mot de passe
+function AfficherChangerMotDePasse()
+{
+    require('views/newPasswordView.php');
+}
+
+// Enregistrer le nouveau mot de passe du visiteur
+function changerDeMotDePasse($newPassword,$userEmail)
+{
+    $reqNewPass = new ForgotPassword;
+    $reqNewPass->enregistrerLeNouveauMotDePasse($newPassword,$userEmail);
 }
 
 // Tester si le visiteur est un administrateur
