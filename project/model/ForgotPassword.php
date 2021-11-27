@@ -4,7 +4,7 @@ require_once("Manager.php");
 
 class ForgotPassword extends Manager
 {
-    public function controlerEmailEtGenererUnToken($userEmail)
+    public function controlEmailGenerateToken($userEmail)
     {
         $sqlEmail = "SELECT * FROM users WHERE user_email = ?";
 
@@ -24,7 +24,7 @@ class ForgotPassword extends Manager
                 $sqlToken = 'UPDATE users SET token = ? WHERE user_email = ?';
                 $getToken = $db->prepare($sqlToken);
                 $getToken->execute([$token, $userEmail]);
-                echo "Merci de vérifier votre boite mail, un courriel vous a été envoyez afin de changer votre mot de passe. (Vous pouvez fermer cette fenêtre)";
+                echo "Merci de vérifier votre boîte mail, un courriel vous a été envoyez afin de changer votre mot de passe. (Vous pouvez fermer cette fenêtre)";
             } else {
                 throw new Exception("L'e-mail n'a pas pu être envoyé !", 1);
             }
@@ -33,7 +33,7 @@ class ForgotPassword extends Manager
         }
     }
 
-    public function verificationToken($tokenUrl)
+    public function controlTokens($tokenUrl)
     {
         $sqlTokenDb = "SELECT token FROM users WHERE token = ?";
 
@@ -44,13 +44,13 @@ class ForgotPassword extends Manager
         $tokenDb = $getTokenDb->fetch(PDO::FETCH_ASSOC);
 
         if ($tokenDb) {
-            AfficherChangerMotDePasse();
+            showChangePassword();
         } else {
             throw new Exception("Le token n'a pas été récupépré dans la BDD", 1);
         }
     }
 
-    public function enregistrerLeNouveauMotDePasse($newPassword, $userEmail)
+    public function saveNewPassword($newPassword, $userEmail)
     {
         $sqlEmail = "SELECT * FROM users WHERE user_email = ?";
 

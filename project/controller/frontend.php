@@ -55,31 +55,31 @@ function passForgetView()
 }
 
 // Envoyer un email avec un token aléatoire
-function genererUnToken($userEmail)
+function GenerateToken($userEmail)
 {
     $reqMail = new ForgotPassword;
-    $reqMail->controlerEmailEtGenererUnToken($userEmail);
+    $reqMail->controlEmailGenerateToken($userEmail);
 
 }
 
 //Controler le token envoyé
-function comparerLesToken($tokenUrl)
+function compareTokens($tokenUrl)
 {
     $reqTokenTmp = new ForgotPassword;
-    $reqTokenTmp->verificationToken($tokenUrl);
+    $reqTokenTmp->controlTokens($tokenUrl);
 }
 
 // Afficher le formulaire pour Changer le mot de passe
-function AfficherChangerMotDePasse()
+function showChangePassword()
 {
     require('views/newPasswordView.php');
 }
 
 // Enregistrer le nouveau mot de passe du visiteur
-function changerDeMotDePasse($newPassword,$userEmail)
+function changePassword($newPassword,$userEmail)
 {
     $reqNewPass = new ForgotPassword;
-    $reqNewPass->enregistrerLeNouveauMotDePasse($newPassword,$userEmail);
+    $reqNewPass->saveNewPassword($newPassword,$userEmail);
 }
 
 // Tester si le visiteur est un administrateur

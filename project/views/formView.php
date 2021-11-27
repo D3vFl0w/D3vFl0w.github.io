@@ -15,12 +15,12 @@ require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
 
             <div>
                 <label for="name">Nom</label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" required>
             </div>
 
             <div>
                 <label for="firstName">Prénom</label>
-                <input type="text" name="firstName" id="firstName">
+                <input type="text" name="firstName" id="firstName" required>
             </div>
 
             <div>
@@ -73,7 +73,7 @@ require_once('/wamp64/www/D3vFl0w.github.io/project/controller/frontend.php');
 
         <div>
             <input type="checkbox" name="check" id="check" required>
-            <label for="check">Je suis sur des informations que j'ai renseignées</label>
+            <label for="check">Je suis sur des informations renseignées</label>
             <button type="submit">Envoyer</button>
         </div>
 

@@ -23,7 +23,7 @@ try {
             if (isset($_POST['user_mail']) && !empty($_POST['user_mail'])) {
                 $userEmail = securing($_POST['user_mail']);
                 if (filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
-                    genererUnToken($userEmail);
+                    GenerateToken($userEmail);
                 } else {
                     throw new Exception("L'adresse e-mail est invalide", 1);
                 }
@@ -33,7 +33,7 @@ try {
         } elseif ($_GET['action'] == 'token') {
             if (isset($_GET['token']) && $_GET['token'] != '') {
                 $tokenUrl = $_GET['token'];
-                comparerLesToken($tokenUrl);
+                compareTokens($tokenUrl);
             } else {
                 throw new Exception("L'adresse URL est incorrecte", 1);
             }
@@ -44,12 +44,12 @@ try {
                 $newPasswordConf = securing($_POST['user_newPasswordConf']);
 
                 if ($newPassword === $newPasswordConf) {
-                    changerDeMotDePasse($newPassword,$userEmail);
+                    changePassword($newPassword,$userEmail);
                 } else {
                     throw new Exception("Les mots de passe ne sont pas identiques, merci de renseigner le même mot de passe", 1);
                 }
             } else {
-                throw new Exception("L'adresse e-mail et/ou les mots de passe sont incorrectes", 1);
+                throw new Exception("L'adresse e-mail et/ou les mots de passe sont incorrects", 1);
             }
         } elseif ($_GET['action'] == 'unset') {
             sessionUnset();

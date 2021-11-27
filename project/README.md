@@ -34,8 +34,3 @@ JOIN comments c
 	ON u.user_id = c.user_id
 JOIN recipes r
 	ON c.recipe_id = r.recipe_id
-
-
-**** USERS ****
-Mettre uniquement des mots de passe hashé dans la base de donnée
-***************
