@@ -1,10 +1,10 @@
 <?php
 
 // Chargement des classes
-require_once('/wamp64/www/D3vFl0w.github.io/project/model/FormManager.php');
-require_once('/wamp64/www/D3vFl0w.github.io/project/model/PicturesManager.php');
-require_once('/wamp64/www/D3vFl0w.github.io/project/model/ConnectingVisitors.php');
-require_once('/wamp64/www/D3vFl0w.github.io/project/model/ForgotPassword.php');
+require_once('/wamp64/www/D3vFl0w.github.io/mariage/model/FormManager.php');
+require_once('/wamp64/www/D3vFl0w.github.io/mariage/model/PicturesManager.php');
+require_once('/wamp64/www/D3vFl0w.github.io/mariage/model/ConnectingVisitors.php');
+require_once('/wamp64/www/D3vFl0w.github.io/mariage/model/ForgotPassword.php');
 
 // AFFICHER le page de connexion
 function connectPage()
