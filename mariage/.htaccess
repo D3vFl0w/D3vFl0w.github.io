@@ -1,0 +1,49 @@
+AddDefaultCharset "utf-8"
+
+## INTERDIRE L'ACCES AU FICHIER .HTACCESS
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</files>
+
+## Mettre le serveur sur le fuseau horaire de Paris
+SetEnv TZ Europe/Paris
+
+## EMPECHE DE FOUILLER A LA RACINE
+Options All -Indexes
+
+## METTRE PAR DEFAUT L'AFFICHAGE
+<FilesMatch "\.(html|html|css|js|php)$">
+    AddDefaultCharset UTF-8
+    DefaultLanguage fr-fr
+</FilesMatch>
+
+## POUR REECRIRE LES NOMS DES PAGES
+Options +FollowSymlinks -MultiViews
+RewriteEngine On
+RewriteBase eleonore-florian.fr
+
+## REDIRECTION HTTP VERS HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
+
+## Redirect external .php requests to extensionless url
+RewriteCond %{THE_REQUEST} ^(.+)\.php([#?][^\ ]*)?\ HTTP/
+RewriteRule ^(.+)\.php$ hhtp://%{HTTP_HOST}/$1 [R=301,L]
+
+## add extension if the php file exists:
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+RewriteRule ^profil/([a-zA-Z0-9]+)$ profile?id=$1
+
+## Réécrire les URLS (RewriteRule ^nouveauNom$ nomExistant)
+RewriteRule ^rechercher$ utilisateurs
+RewriteRule ^Accueil$ index.php?action=home
+
+## ERREURS Si une erreur apparait alors on affiche la page correspondante
+ErrorDocument 401 /erreurs/er_400?erreur=401
+ErrorDocument 402 /erreurs/er_400?erreur=402
+ErrorDocument 403 /erreurs/er_400?erreur=403
+ErrorDocument 404 /erreurs/er_400?erreur=404
