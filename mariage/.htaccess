@@ -1,31 +1,10 @@
 AddDefaultCharset "utf-8"
 
-## INTERDIRE L'ACCES AU FICHIER .HTACCESS
-<Files .htaccess>
-    order allow,deny
-    deny from all
-</files>
-
-## Mettre le serveur sur le fuseau horaire de Paris
-SetEnv TZ Europe/Paris
-
-## EMPECHE DE FOUILLER A LA RACINE
-Options All -Indexes
-
-## METTRE PAR DEFAUT L'AFFICHAGE
-<FilesMatch "\.(html|html|css|js|php)$">
-    AddDefaultCharset UTF-8
-    DefaultLanguage fr-fr
-</FilesMatch>
 
 ## POUR REECRIRE LES NOMS DES PAGES
 Options +FollowSymlinks -MultiViews
 RewriteEngine On
 RewriteBase eleonore-florian.fr
-
-## REDIRECTION HTTP VERS HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
 
 ## Redirect external .php requests to extensionless url
 RewriteCond %{THE_REQUEST} ^(.+)\.php([#?][^\ ]*)?\ HTTP/
